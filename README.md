@@ -1,10 +1,10 @@
 # curry linux : the next crappiest OS to hit the markets!
 
 ## upcoming features:
-- crappier version of GNOME shell
+- better version of GNOME shell! (crappier)
 - insanely fast package management (not really, we're just using APT lmao)
-- one billion extensions (truly a stable os)
-- stable? what does that mean
+- one billion extensions (truly a stable os) - (we want the best for you)
+- stable! (of course not dumb bozo)
 
 ## specifications
 - built on Ubuntu Server (maybe)
@@ -12,6 +12,7 @@
 
 ## Audit Logs
 * idk if this will be made using git comments to a dummy file or not
+* commit logs btw
 
 
 ## Our Mascot
