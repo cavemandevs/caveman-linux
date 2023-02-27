@@ -1,9 +1,9 @@
 # curry linux : the next crappiest OS to hit the markets!
 
 ## upcoming features:
-- better version of GNOME shell! (crappier)
-- insanely fast package management (not really, we're just using APT lmao)
-- one billion extensions (truly a stable os) - (we want the best for you) 
+- better version of GNOME shell! (crappier) - no sidebar?
+- insanely fast package management (not really, we're just using APT lmao) 
+- one billion extensions (truly a stable os) - (we want the best for you) - very stable
 - stable! (of course not dumb bozo)
 
 ## specifications
