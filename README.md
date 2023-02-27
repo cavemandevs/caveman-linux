@@ -16,4 +16,4 @@
 
 
 ## Our Mascot
-![Our Mascot](https://media.discordapp.net/attachments/1064678453846233118/1078073836899160154/image.png "Our Mascot")
+![Our Mascot](https://media.discordapp.net/attachments/1077737373351288973/1079815336024621167/image.png?width=1053&height=657 "Our Mascot")
