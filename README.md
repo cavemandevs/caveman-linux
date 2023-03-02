@@ -15,5 +15,5 @@
 * commit logs btw
 
 
-## Our Mascot
-![Our Mascot](https://media.discordapp.net/attachments/1077737373351288973/1079815336024621167/image.png?width=1053&height=657 "Our Mascot")
+## Our Mascot:
+![Our Mascot](https://media.discordapp.net/attachments/839654168096014336/1080904276529922048/zI3ZqThi_4x.png?width=1402&height=657 "Our Mascot")
