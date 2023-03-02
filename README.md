@@ -7,7 +7,7 @@
 - stable! (of course not dumb bozo)
 
 ## specifications
-- built on Ubuntu Server (maybe)
+- built on Ubuntu prob
 - WILL be installed on a 17 y/o Dell studioslim d40s computer for testing
 
 ## Audit Logs
