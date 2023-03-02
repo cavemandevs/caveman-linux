@@ -1,4 +1,4 @@
-# curry linux : the next crappiest OS to hit the markets!
+# Caveman Linux : the next crappiest OS to hit the markets!
 
 ## upcoming features:
 - better version of GNOME shell! (crappier) - no sidebar?
