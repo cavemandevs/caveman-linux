@@ -13,14 +13,16 @@ echo "S: Start the Installation"
 echo "C: Cancel the Installation"
 echo "R: View the README.md file"
 echo "A: Acknowledgements and Credits"
+echo "L: Read the LICENSE file"
 
 while true; do
-    read -p "Your Selection [S/C/R/A]: " scra 
-    case $scra in
+    read -p "Your Selection [S/C/R/A/L]: " scral 
+    case $scral in
         [Ss]* ) break;;
         [Cc]* ) echo installation cancelled!; exit;;
         [Rr]* ) cat README.md;;
         [Aa]* ) cat CREDITS.txt;;
+        [Ll]* ) cat LICENSE;;
         * ) echo "Please choose an answer within the limits.";;
     esac
 done
