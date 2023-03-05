@@ -1,4 +1,4 @@
-echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+`echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
 echo -e "\033[1mCaveman Linux Installer\033[0m"
 echo "This will configure Ubuntu Linux with our modifications"
 echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
@@ -31,7 +31,7 @@ done
 echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
 echo -e "\033[1mFINAL CONFIRMATION\033[0m"
 echo
-echo This is the final confirmation to install the software
+echo This is the final confirmation to in`stall the software
 echo Once again, WE ARE NOT RESPONSIBLE FOR DAMAGES TO YOUR COMPUTER.
 echo To continue, type in "InstallCavemanLinux" and press enter to confirm installation
 
