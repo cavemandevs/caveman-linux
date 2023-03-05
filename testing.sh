@@ -1,2 +1,2 @@
-# a dummy file
+# a dummy file used for testing
 echo testing complete
