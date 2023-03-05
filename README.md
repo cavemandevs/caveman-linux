@@ -2,12 +2,12 @@
 
 ## upcoming features:
 - better version of GNOME shell! (crappier) - no sidebar?
-- insanely fast package management (not really, we're just using APT lmao) 
+- insanely fast package management (not really, were using pacman lmao) 
 - one billion extensions (truly a stable os) - (we want the best for you) - very stable
 - stable! (of course not dumb bozo)
 
 ## specifications
-- built on Ubuntu prob
+- built on arch prob
 - WILL be installed on a 17 y/o Dell studioslim d40s computer for testing
 
 ## Audit Logs
