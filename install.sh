@@ -38,7 +38,7 @@ echo To continue, type in "InstallCavemanLinux" and press enter to confirm insta
 while true; do
     read -p "Please type in the Confirmation Code: " installcavemanlinux
     case $installcavemanlinux in
-        [installcavemanlinux]* ) install.sh; break;;
+        [installcavemanlinux]* ) ./install.sh; break;;
         * ) echo "installation cancelled, please start over."; exit;;
     esac
 done
