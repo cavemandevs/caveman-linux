@@ -1,5 +1,14 @@
 # enter all commands in order here
 # the install.sh file will point to this file, and will write the commands in order
-# ALSO dont worry about adding the sudo prefix, running sudo ./bootstrap.sh will also run everything else as sudo
+# arch install is root so you dont need to add sudo to anything
 # WARNING: if you need to cd into a directory, it may cause problems.
 # contact devin for more info on this 
+pacman -S --noconfirm --needed networkmanager dhclient
+systemctl enable --now networkmanager
+echo enabled networkmanager
+
+#select best mirrors
+
+pacman -S --noconfirm --needed pacman-contrib curl
+pacman -S --noconfirm --needed reflector rsync grub arch-install-scripts git
+cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.bak
