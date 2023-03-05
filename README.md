@@ -2,7 +2,7 @@
 
 ## upcoming features:
 - better version of GNOME shell! (crappier) - no sidebar?
-- insanely fast package management (not really, were using APT lmao) 
+- insanely fast package management (not really, were using APT (or maybe pacman) lmao) 
 - one billion extensions (truly a stable os) - (we want the best for you) - very stable
 - stable! (of course not dumb bozo)
 
