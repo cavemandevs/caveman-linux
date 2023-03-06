@@ -1,4 +1,6 @@
-`echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+#!/bin/bash
+
+echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
 echo -e "\033[1mCaveman Linux Installer\033[0m"
 echo "This will configure Ubuntu Linux with our modifications"
 echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
@@ -29,19 +31,35 @@ while true; do
 done
 
 echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-echo -e "\033[1mFINAL CONFIRMATION\033[0m"
+echo -e "\033[1mCONFIRMATION\033[0m"
 echo
-echo This is the final confirmation to in`stall the software
-echo Once again, WE ARE NOT RESPONSIBLE FOR DAMAGES TO YOUR COMPUTER.
-echo To continue, type in "InstallCavemanLinux" and press enter to confirm installation
+echo This is a confirmation to install the software
+echo WE ARE NOT RESPONSIBLE FOR DAMAGES TO YOUR COMPUTER.
 
 while true; do
-    read -p "Please type in the Confirmation Code: " installcavemanlinux
-    case $installcavemanlinux in
-        [installcavemanlinux]* ) ./install.sh; break;;
-        * ) echo "installation cancelled, please start over."; exit;;
+    read -p "Do you want to Install? [Y/N]: " yn
+    case $yn in
+        [Yy]* ) break;;
+        [Nn]* ) echo "installation cancelled, please start over."; exit;;
+        * ) echo "Please choose a valid option."
     esac
 done
 
+echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+echo -e "\033[1mFINAL CONFIRMATION\033[0m"
+echo
+echo -e "\033[1mLAST WARNING:\033[0m"
+echo -e This the FINAL confirmation to install the software
+echo By installng, you acknowledge that we are NOT RESPONSIBLE for damages to your computer,
+echo and you have read the README.md file before installing.
+echo
+echo To Install, please type in "InstallCavemanLinux" and press enter.
 
-
+VERIFY_PHRASE="InstallCavemanLinux"
+read -p "Please enter the phrase to continue: " user_input
+if [[ "$user_input" == "$VERIFY_PHRASE" ]]; then
+  ./testing.sh
+else
+  echo "installation cancelled, please start over."
+  exit 1
+fi
