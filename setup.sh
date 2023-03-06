@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # enter all commands in order here
 # the install.sh file will point to this file, and will write the commands in order
 # arch install is root so no sudo stuff
