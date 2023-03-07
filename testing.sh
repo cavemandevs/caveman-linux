@@ -1,6 +1,7 @@
 #!/bin/bash
 
 # a dummy file used for testing
+# Bradley the arch guy was here
 
 echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" 
 echo "This is the testing file"
