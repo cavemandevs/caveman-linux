@@ -5,14 +5,15 @@ def search_aur(package_name):
     rq = requests.get(url)
     rqj = rq.json()
     if rqj['results']:
-        first_result = rqj['results'][0]
-        second_result = rqj['results'][1]
-        third_result = rqj['results'][2]
-        print(f"{first_result['Name']}, with {first_result['NumVotes']} upvotes")
-        print(f"{second_result['Name']}, with {second_result['NumVotes']} upvotes")
-        print(f"{third_result['Name']}, with {third_result['NumVotes']} upvotes")
+        results = rqj['results']
+        sorted_results = sorted(results, key=lambda r: r['NumVotes'], reverse=True)
+        for i in range(min(3, len(sorted_results))):
+            result = sorted_results[i]
+            print(f"{result['Name']}, with {result['NumVotes']} upvotes")
     else:
-        print(f"i cant find '{package_name}' on the aur.")
+        print(f"Cannot find '{package_name}' on the AUR.")
 
-package_name = input('what are you looking for: ')
+package_name = input('What package are you looking for? ')
+if package_name == '':
+    exit()
 search_aur(package_name)
