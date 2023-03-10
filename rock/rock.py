@@ -17,13 +17,14 @@ def search_aur(package_name):
             print(f"{result['Name']}, with {result['NumVotes']} upvotes. description: {result['Description']}\n")
         url = result['PackageBase']
         os.system(f'git clone https://aur.archlinux.org/packages/{url}.git')
-
-
     else:
         print(f"cant find '{package_name}' on the aur.\n")
 
 package_name = input('what package are you looking for?: ')
 
+
+#exit if no input
 if package_name == '':
     exit()
+
 search_aur(package_name)
