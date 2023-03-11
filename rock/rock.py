@@ -4,7 +4,7 @@ import os
 
 
 def search_aur(package_name):
-    url = f'https://aur.archlinux.org/rpc/?v=5&type=search&arg={package_name}'
+    url = 'https://aur.archlinux.org/rpc/?v=5&type=search&arg='+package_name
     rq = requests.get(url)
     rqj = rq.json()
     if rqj['results']:
@@ -16,15 +16,16 @@ def search_aur(package_name):
             result = sorted_results[i]
             print(f"{result['Name']}, with {result['NumVotes']} upvotes. description: {result['Description']}\n")
         url = result['PackageBase']
-        os.system(f'git clone https://aur.archlinux.org/packages/{url}.git')
+        #os.system(f'git clone https://aur.archlinux.org/{url}.git')
+        #os.system('makepkg -sri')
     else:
         print(f"cant find '{package_name}' on the aur.\n")
 
-package_name = input('what package are you looking for?: ')
+pac = input('what package are you looking for?: ')
 
 
 #exit if no input
-if package_name == '':
+if pac == '':
     exit()
 
-search_aur(package_name)
+search_aur(pac)
