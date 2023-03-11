@@ -1,8 +1,8 @@
 import requests
 import os
 def search_aur(package_name):
-    url = 'https://aur.archlinux.org/rpc/?v=5&type=search&arg=' + package_name
-    rq = requests.get(url)
+    Furl = 'https://aur.archlinux.org/rpc/?v=5&type=search&arg=' + package_name
+    rq = requests.get(Furl)
     rqj = rq.json()
     if rqj['results']:
         results = rqj['results']
