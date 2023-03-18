@@ -9,17 +9,3 @@
 
 
 # someone do pre install stuff
-
-
-
-
-
-pacman -S --noconfirm --needed networkmanager dhclient
-systemctl enable --now networkmanager
-echo enabled networkmanager
-
-#select best mirrors
-
-pacman -S --noconfirm --needed pacman-contrib curl
-pacman -S --noconfirm --needed reflector rsync grub arch-install-scripts git
-cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.bak
