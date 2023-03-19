@@ -26,7 +26,7 @@ def search_aur(package_name):
         except (ValueError, IndexError):
             print(f"oops try again?: '{selected}'.")
     else:
-        print(f"try searching something different because this isnt '{package_name}' on the AUR.\n")
+        print(f"try searching something different because this,'{package_name}' isnt on the aur.\n")
 pac = input('what package are you looking for?: ')
 if pac == '':
     exit()
