@@ -31,6 +31,6 @@ to be added
 
 ## plan
 
-- Working demo | 4/10
-- Package Manager (done) | 5/01
-- Mostly working(w/installer) | 6/01
+- Working demo | April 10
+- Package Manager (done) | May 1st
+- Mostly working(w/installer) | June 1st
