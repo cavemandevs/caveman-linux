@@ -18,6 +18,11 @@ def search_aur(package_name): #search aur
             selected = int(selected) - 1
             result = sorted_results[selected]
             url = result['PackageBase']
+            try:
+                os.chdir('~')
+            except:
+                print('oh no')
+                
             os.system(f'git clone https://aur.archlinux.org/{url}.git') #clone package
             print(url)
             os.chdir(url)
