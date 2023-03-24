@@ -1,7 +1,7 @@
-import requests
+import requests #import libs
 import os
-def search_aur(package_name):
-    Furl = 'https://aur.archlinux.org/rpc/?v=5&type=search&arg=' + package_name
+def search_aur(package_name): #search aur
+    Furl = 'https://aur.archlinux.org/rpc/?v=5&type=search&arg=' + package_name #im stupid ok it works tho 
     rq = requests.get(Furl)
     rqj = rq.json()
     if rqj['results']:
@@ -14,19 +14,24 @@ def search_aur(package_name):
         selected = input('which one do you want to get: ')
         if selected == '':
             exit()
-        try:
+        try: 
             selected = int(selected) - 1
             result = sorted_results[selected]
             url = result['PackageBase']
-            os.system(f'git clone https://aur.archlinux.org/{url}.git')
+            try:
+                os.chdir('~')
+            except:
+                print('oh no')
+                
+            os.system(f'git clone https://aur.archlinux.org/{url}.git') #clone package
             print(url)
             os.chdir(url)
             os.system('ls')
-            os.system('makepkg -sri')
+            os.system('makepkg -sri') #build package
         except (ValueError, IndexError):
             print(f"oops try again?: '{selected}'.")
     else:
-        print(f"try searching something different because this isnt '{package_name}' on the AUR.\n")
+        print(f"try searching something different because this,'{package_name}' isnt on the aur.\n")
 pac = input('what package are you looking for?: ')
 if pac == '':
     exit()
