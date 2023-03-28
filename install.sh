@@ -1,5 +1,8 @@
 #!/bin/bash
 
+echo 
+cat logo.txt
+echo
 echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
 echo -e "\033[1mCaveman Linux Installer\033[0m"
 echo "This will configure Arch Linux with our modifications"
