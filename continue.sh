@@ -2,7 +2,7 @@
 
 echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
 echo -e "\033[1mCaveman Linux Installer\033[0m"
-echo "This will configure Ubuntu Linux with our modifications"
+echo "This will configure Arch Linux with our modifications"
 echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
 echo "Make sure you read the README.md before continuing."
 echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
