@@ -15,7 +15,7 @@
 ######################################################################
 
 echo 
-cat logo.txt
+cat textlogo.txt
 echo
 echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
 echo -e "\033[1mCaveman Linux Installer\033[0m"
