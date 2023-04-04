@@ -1,5 +1,19 @@
 #!/bin/bash
 
+######################################################################
+#                        * . caveman linux! .*                       # 
+######################################################################
+#      A small school project built by Devin, Bradley and Soham      #
+#                         Check us out here!                         #
+#                                                                    #
+#   ninetyninebytes (devin): https://www.github.com/ninetyninebytes  #
+#         guygopher (bradley): https://github.com/guygopher          #
+#         S-Panjwani (soham): https://github.com/S-Panjwani          #
+######################################################################
+#   This project is made with the GNU General Public License v2.0.   #
+#            Please read the LICENSE file for the license            #
+######################################################################
+
 echo 
 cat logo.txt
 echo
@@ -17,18 +31,14 @@ echo
 echo "S: Start the Installation"
 echo "C: Cancel the Installation"
 echo "R: View the README.md file"
-echo "A: Acknowledgements and Credits"
-echo "L: Read the LICENSE file"
 
 # scral is input
 while true; do
-    read -p "Your Selection [S/C/R/A/L]: " scral
-    case $scral in
+    read -p "Your Selection [S/C/R]: " scr
+    case $scr in
         [Ss]* ) break;;
         [Cc]* ) echo installation cancelled!; exit;;
         [Rr]* ) cat README.md;;
-        [Aa]* ) cat CREDITS.txt;;
-        [Ll]* ) cat LICENSE;;
         * ) echo "Please choose a valid selection.";;
     esac
 done
