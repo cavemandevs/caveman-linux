@@ -33,7 +33,6 @@ echo "S: Start the Installation"
 echo "C: Cancel the Installation"
 echo "R: View the README.md file"
 
-# scral is input
 while true; do
     read -p "Your Selection [S/C/R]: " scr
     case $scr in
