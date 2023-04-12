@@ -122,8 +122,8 @@ if [[ "$user_input" == "$VERIFY_PHRASE" ]]; then
 
 # fix this im trash at shell scripting
 
-echo Rebooting.
-sleep 0.5
-echo Rebooting..
+echo Rebooting...
 sleep 0.5
 echo Rebooting...
+
+fi
