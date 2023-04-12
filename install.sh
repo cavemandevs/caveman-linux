@@ -82,7 +82,7 @@ if [[ "$user_input" == "$VERIFY_PHRASE" ]]; then
       seconds=$(( $seconds - 1 ))
   done
 
-  echo "Installtion Started!"
+  echo "Installation Started!"
 
   pacman -S --noconfirm --needed networkmanager dhclient
   systemctl enable --now networkmanager
