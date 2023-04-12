@@ -1,13 +1,13 @@
 #!/bin/bash
 
 ######################################################################
-#                        * . caveman linux! .*                       # 
+#                        * . Caveman Linux! .*                       # 
 ######################################################################
 #      A small school project built by Devin, Bradley and Soham      #
 #                         Check us out here!                         #
 #                                                                    #
 #   ninetyninebytes (devin): https://www.github.com/ninetyninebytes  #
-#         caernarferon (bradley): https://github.com/caernarferon          #
+#         caernarferon (bradley): https://github.com/caernarferon    #
 #         S-Panjwani (soham): https://github.com/S-Panjwani          #
 ######################################################################
 #   This project is made with the GNU General Public License v2.0.   #
@@ -34,7 +34,12 @@ echo "C: Cancel the Installation"
 echo "R: View the README.md file"
 
 while true; do
-    read -p "Your Selection [S/C/R]: " scr
+    read -p "
+S - Start installation
+C - Cancel 
+R - Read README.md file
+
+Your Selection [S/C/R]: " scr
     case $scr in
         [Ss]* ) break;;
         [Cc]* ) echo installation cancelled!; exit;;
@@ -62,13 +67,12 @@ echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
 echo -e "\033[1mFINAL CONFIRMATION\033[0m"
 echo
 echo -e "\033[1mLAST WARNING:\033[0m"
-echo -e This the FINAL confirmation to install the software
-echo By installng, you acknowledge that we are NOT RESPONSIBLE for damages to your computer,
+echo -e This the FINAL confirmation to install this software. Anything happening from now on is YOUR fault.
+echo By installing, you acknowledge that we are NOT RESPONSIBLE for any damage to your device.
 echo and you have read the README.md file before installing.
-echo
-echo To Install, please type in "InstallCavemanLinux" and press enter.
+echo To Install, please type in "whydididothis?" and press enter.
 
-VERIFY_PHRASE="InstallCavemanLinux"
+VERIFY_PHRASE="whydididothis?"
 read -p "Please enter the phrase to continue: " user_input
 if [[ "$user_input" == "$VERIFY_PHRASE" ]]; then
   echo "Starting Installation"
@@ -99,31 +103,27 @@ if [[ "$user_input" == "$VERIFY_PHRASE" ]]; then
   # installing packages
 
   pacman -Syu
-  pacman -S --noconfirm xorg xorg-server gnome neofetch firefox vim gnome-tweaks libreoffice-fresh htop git
+  pacman -S --noconfirm xorg xorg-server gnome neofetch firefox vim gnome-tweaks libreoffice-fresh htop git gnome-extra
+
+  #nobloat only installs core apps
 
   # TO BE ADDED:
-  # integrate rock to system
+  # integrate rock to system - Add rock to /bin, add rock to /opt, install yay.
 
-  # also i might make a yay installation assistant AFTER the user logs on to GNOME
-  # on my testing VM there were a lot of issues for some reason
+    #yay 
+    #cd /opt
+    #git clone - /opt https://github.com/Jguer/yay
 
   # starting up GDM on startup
   systemctl enable gdm.service
 
-  echo "Installation Complete!, starting GNOME..." #what if it just restarted so all the systemctl things can start
+  echo "Installation Successful!, Make sure to reboot your PC"
+   #what if it just restarted so all the systemctl things can start
 
-  seconds=10
+# fix this im trash at shell scripting
 
-  while [ $seconds -gt 0 ]
-  do
-      echo "Seconds remaining: $seconds"
-      sleep 1
-      seconds=$(( $seconds - 1 ))
-  done
-
-  echo "Starting GNOME"
-  systemctl start gdm.service
-else
-  echo "installation cancelled, please start over."
-  exit 1
-fi
+echo Rebooting.
+sleep 0.5
+echo Rebooting..
+sleep 0.5
+echo Rebooting...
