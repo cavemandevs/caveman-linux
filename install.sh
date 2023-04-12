@@ -1,10 +1,28 @@
 #!/bin/bash
 
+######################################################################
+#                        * . caveman linux! .*                       # 
+######################################################################
+#      A small school project built by Devin, Bradley and Soham      #
+#                         Check us out here!                         #
+#                                                                    #
+#   ninetyninebytes (devin): https://www.github.com/ninetyninebytes  #
+#         guygopher (bradley): https://github.com/guygopher          #
+#         S-Panjwani (soham): https://github.com/S-Panjwani          #
+######################################################################
+#   This project is made with the GNU General Public License v2.0.   #
+#            Please read the LICENSE file for the license            #
+######################################################################
+
+echo 
+cat textlogo.txt
+echo
 echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
 echo -e "\033[1mCaveman Linux Installer\033[0m"
-echo "This will configure Ubuntu Linux with our modifications"
+echo "This will configure Arch Linux with our modifications"
 echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
 echo "Make sure you read the README.md before continuing."
+echo "also, please read the LICENSE file for the license."
 echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
 echo -e "\033[1mWARNING: WE ARE NOT RESPONSIBLE FOR DAMAGES TO YOUR COMPUTER.\033[0m"
 echo -e "\e[3m(so please make sure you know what you're doing!)\e[0m"
@@ -14,18 +32,13 @@ echo
 echo "S: Start the Installation"
 echo "C: Cancel the Installation"
 echo "R: View the README.md file"
-echo "A: Acknowledgements and Credits"
-echo "L: Read the LICENSE file"
 
-# scral is input
 while true; do
-    read -p "Your Selection [S/C/R/A/L]: " scral
-    case $scral in
+    read -p "Your Selection [S/C/R]: " scr
+    case $scr in
         [Ss]* ) break;;
         [Cc]* ) echo installation cancelled!; exit;;
         [Rr]* ) cat README.md;;
-        [Aa]* ) cat CREDITS.txt;;
-        [Ll]* ) cat LICENSE;;
         * ) echo "Please choose a valid selection.";;
     esac
 done
@@ -69,7 +82,7 @@ if [[ "$user_input" == "$VERIFY_PHRASE" ]]; then
       seconds=$(( $seconds - 1 ))
   done
 
-  echo "Installtion Started!"
+  echo "Installation Started!"
 
   pacman -S --noconfirm --needed networkmanager dhcpcd
   sudo systemctl enable --now NetworkManager
@@ -92,15 +105,13 @@ if [[ "$user_input" == "$VERIFY_PHRASE" ]]; then
   # installing packages
 
   pacman -Syu
-  pacman -S xorg xorg-server gnome neofetch firefox vim tweaks libreoffice-fresh htop 
+  pacman -S --noconfirm xorg xorg-server gnome neofetch firefox vim gnome-tweaks libreoffice-fresh htop git
 
-  # installing yay
-  # this might be a bit unstable
-  cd /opt
-  git clone https://aur.archlinux.org/yay-git.git
-  sudo chown -R ${USER}:${USER} ./yay-git
-  cd yay-git
-  makepkg -si
+  # TO BE ADDED:
+  # integrate rock to system
+
+  # also i might make a yay installation assistant AFTER the user logs on to GNOME
+  # on my testing VM there were a lot of issues for some reason
 
   # starting up GDM on startup
   systemctl enable gdm.service
