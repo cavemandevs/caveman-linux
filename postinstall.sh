@@ -7,7 +7,7 @@
 #                         Check us out here!                         #
 #                                                                    #
 #   ninetyninebytes (devin): https://www.github.com/ninetyninebytes  #
-#         guygopher (bradley): https://github.com/guygopher          #
+#         caernarferon (bradley): https://github.com/caernarferon          #
 #         S-Panjwani (soham): https://github.com/S-Panjwani          #
 ######################################################################
 #   This project is made with the GNU General Public License v2.0.   #
@@ -110,7 +110,7 @@ if [[ "$user_input" == "$VERIFY_PHRASE" ]]; then
   # starting up GDM on startup
   systemctl enable gdm.service
 
-  echo "Installation Complete!, starting GNOME..."
+  echo "Installation Complete!, starting GNOME..." #what if it just restarted so all the systemctl things can start
 
   seconds=10
 
