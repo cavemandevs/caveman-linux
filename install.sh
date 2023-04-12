@@ -60,7 +60,7 @@ read -p "Please enter the phrase to continue: " user_input
 if [[ "$user_input" == "$VERIFY_PHRASE" ]]; then
   echo "Starting Installation"
 
-  seconds=10
+  seconds=10 # are you high 
 
   while [ $seconds -gt 0 ]
   do
@@ -71,9 +71,14 @@ if [[ "$user_input" == "$VERIFY_PHRASE" ]]; then
 
   echo "Installtion Started!"
 
-  pacman -S --noconfirm --needed networkmanager dhclient
-  systemctl enable --now networkmanager
-  echo enabled networkmanager
+  pacman -S --noconfirm --needed networkmanager dhcpcd
+  sudo systemctl enable --now NetworkManager
+  sudo systemctl start NetworkManager
+  sudo systemctl enable --now NetworkManager
+  sudo systemctl start dhcpcd
+  sudo systemctl enable dhcpcd
+
+  echo Enabled NetworkManager
 
   # we need to do some research on how to connect to peap on the network
 
@@ -81,6 +86,7 @@ if [[ "$user_input" == "$VERIFY_PHRASE" ]]; then
 
   pacman -S --noconfirm --needed pacman-contrib curl
   pacman -S --noconfirm --needed reflector rsync grub arch-install-scripts git
+  echo Finding best mirrors...
   cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.bak
 
   # installing packages
