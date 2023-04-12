@@ -68,16 +68,14 @@ echo -e "\033[1mFINAL CONFIRMATION\033[0m"
 echo
 echo -e "\033[1mLAST WARNING:\033[0m"
 echo -e This the FINAL confirmation to install this software. Anything happening from now on is YOUR fault.
-echo By installing, you acknowledge that we are NOT RESPONSIBLE for any damage to your device.
+echo By installing, you acknowledge that we are NOT RESPONSIBLE for any damage done to your device.
 echo and you have read the README.md file before installing.
-echo To Install, please type in "whydididothis?" and press enter.
 
 VERIFY_PHRASE="whydididothis?"
 read -p "Please enter the phrase to continue: " user_input
 if [[ "$user_input" == "$VERIFY_PHRASE" ]]; then
   echo "Starting Installation"
-
-  seconds=10
+    seconds=10
 
   while [ $seconds -gt 0 ]
   do
@@ -85,6 +83,7 @@ if [[ "$user_input" == "$VERIFY_PHRASE" ]]; then
       sleep 1
       seconds=$(( $seconds - 1 ))
   done
+
 
   echo "Installation Started!"
 
