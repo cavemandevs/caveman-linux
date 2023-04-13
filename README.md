@@ -25,7 +25,7 @@ Audit Logs are available by checking the commit history
 
 
 ## Credits
-to be added
+To be added
 
 
 ## Roadmap
