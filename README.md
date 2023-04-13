@@ -2,12 +2,14 @@
 ### <div align="center">the next crappiest OS to hit the markets!</div>
 
 ## Upcoming Features
-- better version of GNOME shell!
-- insanely fast package management (not really, were using pacman lmao)
-- installs yay for you (yay!)
-- new package management system (maybe?)
-- one billion extensions (truly a stable os) - (we want the best for you) - very stable
-- stable!
+- Better version of GNOME shell!
+- Insanely fast package management (not really, were using pacman lmao)
+- Installs yay for you (yay!)
+- Insanely easy to use for those Windows users who want to transition to a Linux distro but is clueless.
+- Caveman is also good for intermediate users who want the features Caveman provides.
+- New package management system (maybe?)
+- One billion extensions (truly a stable os) - (we want the best for you) - very stable
+- Stable!
 
 ## Specifications
 - based on Arch Linux
