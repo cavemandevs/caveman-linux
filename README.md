@@ -12,7 +12,7 @@
 - Stable!
 
 ## Specifications
-- based on Arch Linux
+- Based on Arch Linux
 - WILL be installed on a 17 y/o Dell Studio Slim D540S computer for testing
 
 ## Audit Logs
