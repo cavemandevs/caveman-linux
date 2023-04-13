@@ -35,6 +35,7 @@ To be added
 - Working demo | April 10
 - Package Manager (done) | May 1st
 - Mostly working(w/installer) | June 1st
+- Alpha Testing Phase | Late June
 
 ## Our Mascot
 
