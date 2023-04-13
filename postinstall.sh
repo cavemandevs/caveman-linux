@@ -89,7 +89,6 @@ if [[ "$user_input" == "$VERIFY_PHRASE" ]]; then
   # integrate rock to system - Add rock to /bin, add rock to /opt, install yay.
 
 yay 
-cd /opt
 git clone /opt https://github.com/Jguer/yay
 
   # starting up GDM on startup
