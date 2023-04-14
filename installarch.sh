@@ -9,4 +9,4 @@ disk=$1
 boot=${disk}1
 swap=${disk}2
 root=${disk}3
-home=${disk}4
+home=${disk}41
