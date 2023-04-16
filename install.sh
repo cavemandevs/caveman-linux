@@ -83,7 +83,7 @@ if [[ "$user_input" == "$VERIFY_PHRASE" ]]; then
   done
 
   echo "Installation Started!"
-
+  echo "Configuring Network Manager and dhcpcd"
   pacman -S --noconfirm --needed networkmanager dhcpcd
   sudo systemctl enable --now NetworkManager
   sudo systemctl start NetworkManager
@@ -127,7 +127,7 @@ if [[ "$user_input" == "$VERIFY_PHRASE" ]]; then
       seconds=$(( $seconds - 1 ))
   done
 
-  echo "Starting GNOME"
+  echo "Preparing gnome GNOME"
   systemctl start gdm.service
 else
   echo "installation cancelled, please start over."
