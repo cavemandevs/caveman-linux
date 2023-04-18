@@ -1,5 +1,5 @@
 # <div align="center">Caveman Linux</div>
-### <div align="center">the next crappiest OS to hit the markets!</div>
+### <div align="center">...the next crappiest OS to hit the markets!</div>
 
 ## Upcoming Features
 - Better version of GNOME shell!
