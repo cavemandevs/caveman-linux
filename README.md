@@ -20,9 +20,9 @@ Audit Logs are available by checking the commit history
 
 ## Installation
 1. Change permissions for the installer
-    - do `chmod +x install.sh`
+    - Do `chmod +x install.sh`
 2. Execute the shell script (with root access)
-    - do `sudo ./install.sh`
+    - Do `sudo ./install.sh`
 3. Follow the on screen instructions
 
 
