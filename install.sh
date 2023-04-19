@@ -126,9 +126,6 @@ if [[ "$user_input" == "$VERIFY_PHRASE" ]]; then
       sleep 1
       seconds=$(( $seconds - 1 ))
   done
-
-  echo "Preparing gnome GNOME"
-  systemctl start gdm.service
 else
   echo "installation cancelled, please start over."
   exit 1
