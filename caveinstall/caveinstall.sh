@@ -5,6 +5,7 @@
 printf "\nthis script will destroy whatever is on $1.\n are you sure (y/n): " && read CERTAIN
 [ "$CERTAIN" != "y" ] && printf "abort lol" && exit
 
+pacman -S --noconfirm parted
 disk=$1
 boot=${disk}1
 swap=${disk}2
