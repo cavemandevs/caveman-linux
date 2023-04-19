@@ -1,5 +1,9 @@
 #!/bin/bash
 
+[ -z "$1" ] && printf "what drive are you installing to (/dev/sda, /dev/nvme0n1. run lsblk to check what you have)\n\n./archstrap.sh [DRIVE]\n\n" && exit
+[ ! -b "$1" ] && printf "boy $1 you broke something.\n" && exit
+printf "\nthis script will destroy whatever is on $1.\n are you sure (y/n): " && read CERTAIN
+[ "$CERTAIN" != "y" ] && printf "abort lol" && exit
 
 disk=$1
 boot=${disk}1
