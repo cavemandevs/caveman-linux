@@ -1,13 +1,13 @@
 # Caveman Linux : the next crappiest OS to hit the markets!
 
 ## upcoming features:
-- better version of GNOME shell! (crappier)
-- insanely fast package management (not really, we're just using APT lmao)
-- one billion extensions (truly a stable os) - (we want the best for you) 
-- stable! (of course not dumb bozo)
+- better version of GNOME!
+- insanely fast package management!
+- one billion extensions 
+- stable!
 
 ## specifications
-- built on Ubuntu Server (maybe)
+- built on Arch Linux
 - WILL be installed on a 17 y/o Dell studioslim d40s computer for testing
 
 ## Audit Logs
@@ -15,7 +15,5 @@
 * commit logs btw
 
 
-## Our Mascot
-![Our Mascot](https://media.discordapp.net/attachments/1064678453846233118/1078073836899160154/image.png "Our Mascot")
 
 
