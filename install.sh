@@ -14,6 +14,10 @@
 #            Please read the LICENSE file for the license            #
 ######################################################################
 
+# !!! CHECK BOTTOM OF SCRIPT FOR NOTES
+# !!! CHECK BOTTOM OF SCRIPT FOR NOTES
+# !!! CHECK BOTTOM OF SCRIPT FOR NOTES
+
 echo 
 cat textlogo.txt
 echo
@@ -83,40 +87,55 @@ if [[ "$user_input" == "$VERIFY_PHRASE" ]]; then
   done
 
   echo "Installation Started!"
-  echo "Configuring Network Manager and dhcpcd"
-  pacman -S --noconfirm --needed networkmanager dhcpcd
-  sudo systemctl enable --now NetworkManager
-  sudo systemctl start NetworkManager
-  sudo systemctl enable --now NetworkManager
-  sudo systemctl start dhcpcd
-  sudo systemctl enable dhcpcd
-
-  echo Enabled NetworkManager
-
-  # we need to do some research on how to connect to peap on the network
-
-  #select best mirrors
-
-  pacman -S --noconfirm --needed pacman-contrib curl
-  pacman -S --noconfirm --needed reflector rsync grub arch-install-scripts git
-  echo Finding best mirrors...
+  
+  echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+  echo -e "\033[1mMirror Setup\033[0m"
+  echo
+  echo "please choose a country for your pacman mirrors"
+  echo "you are allowed to sepearate each country with commas, and each country must start with a capital letter"
+  echo "example: Canada, France"
+  read COUNTRY
+  pacman -S --noconfirm --needed reflector
+  reflector --country $COUNTRY --latest 10 --protocol https --sort rate --save /etc/pacman.d/mirrorlist --verbose
+  echo done!
+  echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+  echo -e "\033[1mConfiguring Pacman\033[0m"
+  echo
+  echo "would you like to enable multilib, and set paralell downloads to 5?
+  while true; do
+    read -p "choose an option [Y/N]: " yn
+    case $yn in
+        [Yy]* ) sed -i "/\[multilib\]/,/Include/"'s/^#//' /etc/pacman.conf; sed -i '/^#.*ParallelDownloads =.*/s/^#//' /etc/pacman.conf; sed -i '/^#.*ParallelDownloads =.*/s/[[:digit:]]*/10/' ~/pacmantest.conf; break;;
+        [Nn]* ) echo "additional features will NOT be added, however you can install them yourself later"; break;;
+        * ) echo "Please choose a valid option."
+    esac
+  done
+  echo "done!"
+  echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+  # select best mirrors and refresh them every week
+  echo -e "\033[1msetting up mirror refresh scripts...\033[0m"
   cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.bak
-
+  rm /etc/xdg/reflector/reflector.conf
+  echo "--save /etc/pacman.d/mirrorlist" >> /etc/xdg/reflector/reflector.conf
+  echo "--country $COUNTRY" >> /etc/xdg/reflector/reflector.conf
+  echo "--protocol https" >> /etc/xdg/reflector/reflector.conf
+  echo "--latest 10" >> /etc/xdg/reflector/reflector.conf
+  echo "--sort rate" >> /etc/xdg/reflector/reflector.conf
+  systemctl enable reflector.timer
+  echo "mirrors will now be refreshed every week on startup."
+  echo "done!"
+  echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
   # installing packages
-
+  echo -e "\033[1minstalling packages\033[0m"
   pacman -Syu
   pacman -S --noconfirm xorg xorg-server gnome neofetch firefox vim gnome-tweaks libreoffice-fresh htop git
-
-  # TO BE ADDED:
-  # integrate rock to system
-
-  # also i might make a yay installation assistant AFTER the user logs on to GNOME
-  # on my testing VM there were a lot of issues for some reason
-
-  # starting up GDM on startup
+  echo "done!"
+  echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+  echo -e "\033[1menabling GDM on startup\033[0m"
   systemctl enable gdm.service
-
-  echo "Installation Complete!, starting GNOME..."
+  echo "done!"
+  echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+  echo -e "\033[1minstallation complete! rebooting system...\033[0m"
 
   seconds=10
 
@@ -124,9 +143,34 @@ if [[ "$user_input" == "$VERIFY_PHRASE" ]]; then
   do
       echo "Seconds remaining: $seconds"
       sleep 1
+      reboot
       seconds=$(( $seconds - 1 ))
   done
 else
   echo "installation cancelled, please start over."
   exit 1
 fi
+
+
+# NOTES:
+# we need to do a lot of testing for the script
+
+# networkmanager stuff
+# we can just setup networkmanager and dhcpcd during proper install
+# lets make a proper arch installer 
+# and we can just make it git clone this and run
+
+# the paralell downloads problem
+# apparently the script i made isnt working to set paralell downloads to 10
+# i'll probably fix it soon
+
+# TO BE ADDED:
+# integrate rock to system
+# make exclusive wallpapers
+# add colored text (if we have time)
+# change /etc/os-release information
+
+# IDEAS:
+# maybe use rok over yay?
+# if we're going to install yay we still need to make a post logon script
+# we can always use profile.d and rm -f it later
