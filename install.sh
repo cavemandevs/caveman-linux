@@ -147,8 +147,8 @@ if [[ "$user_input" == "$VERIFY_PHRASE" ]]; then
       seconds=$(( $seconds - 1 ))
   done
 else
-  echo "installation cancelled, please start over."
-  exit 1
+      echo "installation cancelled, please start over."
+      exit 1
 fi
 
 
