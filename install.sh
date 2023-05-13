@@ -31,6 +31,7 @@
 # make exclusive wallpapers
 # add colored text (if we have time)
 # change /etc/os-release information
+# add graphics driver support options
 
 # IDEAS:
 # maybe use rok over yay?
@@ -115,7 +116,7 @@ if [[ "$user_input" == "$VERIFY_PHRASE" ]]; then
   echo "example: Canada, France"
   read COUNTRY
   sed -i "/\[multilib\]/,/Include/"'s/^#//' /etc/pacman.conf; sed -i '/^#.*ParallelDownloads =.*/s/^#//' /etc/pacman.conf; sed -i '/^#.*ParallelDownloads =.*/s/[[:digit:]]*/10/' /etc/pacman.conf
-  pacman -Syu
+  pacman -Syu --noconfirm
   pacman -S --noconfirm --needed reflector
   reflector --country $COUNTRY --latest 10 --protocol https --sort rate --save /etc/pacman.d/mirrorlist --verbose
   echo "done!"
