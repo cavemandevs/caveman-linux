@@ -14,9 +14,28 @@
 #            Please read the LICENSE file for the license            #
 ######################################################################
 
-# !!! CHECK BOTTOM OF SCRIPT FOR NOTES
-# !!! CHECK BOTTOM OF SCRIPT FOR NOTES
-# !!! CHECK BOTTOM OF SCRIPT FOR NOTES
+# NOTES (moved here because of potential bug):
+# we need to do a lot of testing for the script
+
+# networkmanager stuff
+# we can just setup networkmanager and dhcpcd during proper install
+# lets make a proper arch installer 
+# and we can just make it git clone this and run
+
+# the paralell downloads problem
+# apparently the script i made isnt working to set paralell downloads to 10
+# i'll probably fix it soon
+
+# TO BE ADDED:
+# integrate rock to system
+# make exclusive wallpapers
+# add colored text (if we have time)
+# change /etc/os-release information
+
+# IDEAS:
+# maybe use rok over yay?
+# if we're going to install yay we still need to make a post logon script
+# we can always use profile.d and rm -f it later
 
 echo 
 cat textlogo.txt
@@ -101,7 +120,7 @@ if [[ "$user_input" == "$VERIFY_PHRASE" ]]; then
   echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
   echo -e "\033[1mConfiguring Pacman\033[0m"
   echo
-  echo "would you like to enable multilib, and set paralell downloads to 5?
+  echo "would you like to enable multilib, and set paralell downloads to 5?"
   while true; do
     read -p "choose an option [Y/N]: " yn
     case $yn in
@@ -143,34 +162,10 @@ if [[ "$user_input" == "$VERIFY_PHRASE" ]]; then
   do
       echo "Seconds remaining: $seconds"
       sleep 1
-      reboot
       seconds=$(( $seconds - 1 ))
+      reboot
   done
 else
-      echo "installation cancelled, please start over."
-      exit 1
+    echo "installation cancelled, please start over."
+    exit 1
 fi
-
-
-# NOTES:
-# we need to do a lot of testing for the script
-
-# networkmanager stuff
-# we can just setup networkmanager and dhcpcd during proper install
-# lets make a proper arch installer 
-# and we can just make it git clone this and run
-
-# the paralell downloads problem
-# apparently the script i made isnt working to set paralell downloads to 10
-# i'll probably fix it soon
-
-# TO BE ADDED:
-# integrate rock to system
-# make exclusive wallpapers
-# add colored text (if we have time)
-# change /etc/os-release information
-
-# IDEAS:
-# maybe use rok over yay?
-# if we're going to install yay we still need to make a post logon script
-# we can always use profile.d and rm -f it later
