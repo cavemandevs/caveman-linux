@@ -32,6 +32,7 @@
 # add colored text (if we have time)
 # change /etc/os-release information
 # add graphics driver support options
+# add ssd detection and add trim
 
 # IDEAS:
 # maybe use rok over yay?
