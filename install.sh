@@ -32,7 +32,7 @@
 # add colored text (if we have time)
 # change /etc/os-release information
 # add graphics driver support options
-# add ssd detection and add trim
+# [DONE] add ssd detection and add trim
 
 # IDEAS:
 # maybe use rok over yay?
@@ -140,8 +140,20 @@ if [[ "$user_input" == "$VERIFY_PHRASE" ]]; then
   pacman -S --noconfirm xorg xorg-server gnome gdm neofetch firefox vim gnome-tweaks libreoffice-fresh htop git
   echo "done!"
   echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-  echo -e "\033[1menabling GDM on startup\033[0m"
+  echo -e "\033[1mfinailzing installation...\033[0m"
   systemctl enable gdm.service
+  drivetype=$(cat /sys/block/sda/queue/rotational)
+  nvmedrivetype=$(ls /dev | grep nvme)
+  if [[ "$drivetype" == "0" ]]
+    then
+        pacman -S --noconfirm util-linux
+        systemctl enable fstrim.timer
+    fi   
+  if [[ "$nvmedrivetype" == "nvme*" ]]
+    then
+        pacman -S --noconfirm util-linux
+        systemctl enable fstrim.timer
+    fi 
   echo "done!"
   echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
   echo -e "\033[1minstallation complete! rebooting system...\033[0m"
