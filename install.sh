@@ -108,29 +108,17 @@ if [[ "$user_input" == "$VERIFY_PHRASE" ]]; then
   echo "Installation Started!"
   
   echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-  echo -e "\033[1mMirror Setup\033[0m"
+  echo -e "\033[1mMirror & Pacman Setup\033[0m"
   echo
   echo "please choose a country for your pacman mirrors"
   echo "you are allowed to sepearate each country with commas, and each country must start with a capital letter"
   echo "example: Canada, France"
   read COUNTRY
+  sed -i "/\[multilib\]/,/Include/"'s/^#//' /etc/pacman.conf; sed -i '/^#.*ParallelDownloads =.*/s/^#//' /etc/pacman.conf; sed -i '/^#.*ParallelDownloads =.*/s/[[:digit:]]*/10/' /etc/pacman.conf
+  pacman -Syu
   pacman -S --noconfirm --needed reflector
   reflector --country $COUNTRY --latest 10 --protocol https --sort rate --save /etc/pacman.d/mirrorlist --verbose
-  echo done!
-  echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-  echo -e "\033[1mConfiguring Pacman\033[0m"
-  echo
-  echo "would you like to enable multilib, and set paralell downloads to 5?"
-  while true; do
-    read -p "choose an option [Y/N]: " yn
-    case $yn in
-        [Yy]* ) sed -i "/\[multilib\]/,/Include/"'s/^#//' /etc/pacman.conf; sed -i '/^#.*ParallelDownloads =.*/s/^#//' /etc/pacman.conf; sed -i '/^#.*ParallelDownloads =.*/s/[[:digit:]]*/10/' ~/pacmantest.conf; break;;
-        [Nn]* ) echo "additional features will NOT be added, however you can install them yourself later"; break;;
-        * ) echo "Please choose a valid option."
-    esac
-  done
   echo "done!"
-  echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
   # select best mirrors and refresh them every week
   echo -e "\033[1msetting up mirror refresh scripts...\033[0m"
   cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.bak
@@ -147,7 +135,7 @@ if [[ "$user_input" == "$VERIFY_PHRASE" ]]; then
   # installing packages
   echo -e "\033[1minstalling packages\033[0m"
   pacman -Syu
-  pacman -S --noconfirm xorg xorg-server gnome neofetch firefox vim gnome-tweaks libreoffice-fresh htop git
+  pacman -S --noconfirm xorg xorg-server gnome gdm neofetch firefox vim gnome-tweaks libreoffice-fresh htop git
   echo "done!"
   echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
   echo -e "\033[1menabling GDM on startup\033[0m"
