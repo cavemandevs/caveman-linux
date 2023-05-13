@@ -31,7 +31,7 @@
 # make exclusive wallpapers
 # add colored text (if we have time)
 # change /etc/os-release information
-# add graphics driver support options
+# [ALMOST DONE] add graphics driver support options
 # [DONE] add ssd detection and add trim
 
 # IDEAS:
@@ -110,12 +110,28 @@ if [[ "$user_input" == "$VERIFY_PHRASE" ]]; then
   echo "Installation Started!"
   
   echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-  echo -e "\033[1mMirror & Pacman Setup\033[0m"
+  echo -e "\033[1mirror and pacman setup\033[0m"
   echo
   echo "please choose a country for your pacman mirrors"
   echo "you are allowed to sepearate each country with commas, and each country must start with a capital letter"
   echo "example: Canada, France"
   read COUNTRY
+  echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+  echo -e "\033[1mgraphics cards support software and drivers installation\033[0m"
+  echo please select the graphics card in your system.
+  echo "N = Nvidia"
+  echo "A = AMD"
+  echo "I = Intel"
+    while true; do
+        read -p "Your Selection : " nai
+        case $nai in
+            [Nn]* ) pacman -S --noconfirm nvidia nvidia-libgl lib32-nvidia-libgl nvidia-settings nvidia-utils lib32-nvidia-utils; sed -i '/^HOOKS=/ s/\<kms\>//g' /etc/mkinitcpio.conf; mkinitcpio -P; break;;
+            [Aa]* ) echo "coming soon!"; break;;
+            [Ii]* ) cat "coming soon!"; break;;
+            * ) echo "Please choose a valid selection.";;
+        esac
+    done
+  echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
   sed -i "/\[multilib\]/,/Include/"'s/^#//' /etc/pacman.conf; sed -i '/^#.*ParallelDownloads =.*/s/^#//' /etc/pacman.conf; sed -i '/^#.*ParallelDownloads =.*/s/[[:digit:]]*/10/' /etc/pacman.conf
   pacman -Syu --noconfirm
   pacman -S --noconfirm --needed reflector
@@ -140,7 +156,7 @@ if [[ "$user_input" == "$VERIFY_PHRASE" ]]; then
   pacman -S --noconfirm xorg xorg-server gnome gdm neofetch firefox vim gnome-tweaks libreoffice-fresh htop git
   echo "done!"
   echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-  echo -e "\033[1mfinailzing installation...\033[0m"
+  echo -e "\033[1mfinalizing installation...\033[0m"
   systemctl enable gdm.service
   drivetype=$(cat /sys/block/sda/queue/rotational)
   nvmedrivetype=$(ls /dev | grep nvme)
@@ -154,6 +170,9 @@ if [[ "$user_input" == "$VERIFY_PHRASE" ]]; then
         pacman -S --noconfirm util-linux
         systemctl enable fstrim.timer
     fi 
+  pacman -S --noconfirm ufw
+  ufw enable
+  systemctl enable ufw.service
   echo "done!"
   echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
   echo -e "\033[1minstallation complete! rebooting system...\033[0m"
