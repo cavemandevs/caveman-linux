@@ -111,22 +111,6 @@ if [[ "$user_input" == "$VERIFY_PHRASE" ]]; then
   echo "you are allowed to sepearate each country with commas, and each country must start with a capital letter"
   echo "example: Canada, France"
   read COUNTRY
-  echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-  echo -e "\033[1mgraphics cards support software and drivers installation\033[0m"
-  echo please select the graphics card in your system.
-  echo "N = Nvidia"
-  echo "A = AMD"
-  echo "I = Intel"
-    while true; do
-        read -p "Your Selection : " nai
-        case $nai in
-            [Nn]* ) pacman -S --noconfirm nvidia nvidia-libgl lib32-nvidia-libgl nvidia-settings nvidia-utils lib32-nvidia-utils; sed -i '/^HOOKS=/ s/\<kms\>//g' /etc/mkinitcpio.conf; mkinitcpio -P; break;;
-            [Aa]* ) echo "coming soon!"; break;;
-            [Ii]* ) cat "coming soon!"; break;;
-            * ) echo "Please choose a valid selection.";;
-        esac
-    done
-  echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
   sed -i "/\[multilib\]/,/Include/"'s/^#//' /etc/pacman.conf; sed -i '/^#.*ParallelDownloads =.*/s/^#//' /etc/pacman.conf; sed -i '/^#.*ParallelDownloads =.*/s/[[:digit:]]*/10/' /etc/pacman.conf
   pacman -Syu --noconfirm
   pacman -S --noconfirm --needed reflector
@@ -151,6 +135,20 @@ if [[ "$user_input" == "$VERIFY_PHRASE" ]]; then
   pacman -S --noconfirm xorg xorg-server gnome gdm neofetch firefox vim gnome-tweaks libreoffice-fresh htop git
   echo "done!"
   echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+  echo -e "\033[1minstalling graphics card drivers & support software...\033[0m" 
+ 
+  if [[ $gpuchoice == "nvidia" ]]
+    then
+        pacman -S --noconfirm nvidia nvidia-libgl lib32-nvidia-libgl nvidia-settings nvidia-utils lib32-nvidia-utils
+	sed -i '/^HOOKS=/ s/\<kms\>//g' /etc/mkinitcpio.conf
+	mkinitcpio -P
+    fi
+
+  if [[ $gpuchoice == "amd" ]]
+    then
+        pacman -S --noconfirm mesa lib32-mesa xf86-video-amdgpu vulkan-radeon lib32-vulkan-radeon libva-mesa-driver lib32-libva-mesa-driver mesa-vdpau lib32-mesa-vdpau
+    fi
+ 
   echo -e "\033[1mfinalizing installation...\033[0m"
   systemctl enable gdm.service
   drivetype=$(cat /sys/block/sda/queue/rotational)
