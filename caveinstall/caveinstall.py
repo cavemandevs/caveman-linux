@@ -36,23 +36,3 @@ class Caveinstall:
         
         if start.lower() != "y":
             exit('aborted installation')
-        # os.system("parted -s /dev/sda mkpart primary ext4 0% 512MiB")
-        # #swap
-        # os.system("parted -s /dev/sda mkpart primary ext4 20GB 30GB")
-        # #root
-        # os.system("parted -s /dev/sda mkpart primary ext4 30GB 100%")
-        os.system("parted -s /dev/nvme0n1 mklabel gpt")
-        os.system("parted -s /dev/nvme0n1 mkpart primary ext4 0% 512MiB")
-        os.system("parted -s /dev/nvme0n1 mkpart primary linux-swap 512MiB 4.5GiB")
-        os.system("parted -s /dev/nvme0n1 mkpart primary ext4 4.5GiB 100%")
-
-        # Format partitions
-        os.system("mkfs.ext4 /dev/nvme0n1p1")
-        os.system("mkswap /dev/nvme0n1p2")
-        os.system("mkfs.ext4 /dev/nvme0n1p3")
-
-        # Mount partitions
-        os.system("mount /dev/nvme0n1p3 /mnt")
-        os.system("mkdir /mnt/boot")
-        os.system("mount /dev/nvme0n1p1 /mnt/boot")
-        os.system("swapon /dev/nvme0n1p2")
