@@ -1,0 +1,3 @@
+echo "$(cat textlogo.txt)"
+
+
