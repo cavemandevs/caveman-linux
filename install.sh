@@ -1,34 +1,25 @@
 #!/bin/bash
 
-######################################################################
-#                        * . caveman linux! .*                       # 
-######################################################################
-#      A small school project built by Devin, Bradley and Soham      #
-#                         Check us out here!                         #
-#                                                                    #
-#   ninetyninebytes (devin): https://www.github.com/ninetyninebytes  #
-#         guygopher (bradley): https://github.com/guygopher          #
-#         S-Panjwani (soham): https://github.com/S-Panjwani          #
-######################################################################
-#   This project is made with the GNU General Public License v2.0.   #
-#            Please read the LICENSE file for the license            #
-######################################################################
+#####################################################################
+#                       * . caveman linux! .*                       #
+#####################################################################
+#     A small school project built by Devin, Bradley and Soham      #
+#                        Check us out here!                         #
+#                                                                   #
+#    ninetyninebytes (devin): https://github.com/ninetyninebytes    #
+#      caernarferon (bradley): https://github.com/caernarferon      #
+#         S-Panjwani (soham): https://github.com/S-Panjwani         #
+#####################################################################
+#  This project is made with the GNU General Public License v2.0.   #
+#           Please read the LICENSE file for the license            #
+#####################################################################
 
-# testing branch
-
-
+# !!! TESTING BRANCH !!!
 
 # NOTES (moved here because of potential bug):
 # we need to do a lot of testing for the script
-
-# networkmanager stuff
-# we can just setup networkmanager and dhcpcd during proper install
-# lets make a proper arch installer 
-# and we can just make it git clone this and run
-
-# the paralell downloads problem
-# apparently the script i made isnt working to set paralell downloads to 10
-# i'll probably fix it soon
+# the solution to the networkmanager problem has been fixed
+# the parallel downloads problem: 5 is enough
 
 # TO BE ADDED:
 # integrate rock to system
