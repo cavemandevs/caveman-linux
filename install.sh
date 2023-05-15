@@ -26,7 +26,7 @@
 # make exclusive wallpapers
 # add colored text (if we have time)
 # change /etc/os-release information
-# [ALMOST DONE] add graphics driver support options
+# [DONE] add graphics driver support options
 # [DONE] add ssd detection and add trim
 
 # IDEAS:
@@ -136,19 +136,17 @@ if [[ "$user_input" == "$VERIFY_PHRASE" ]]; then
   echo "done!"
   echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
   echo -e "\033[1minstalling graphics card drivers & support software...\033[0m" 
- 
-  if [[ $gpuchoice == "nvidia" ]]
-    then
-        pacman -S --noconfirm nvidia nvidia-libgl lib32-nvidia-libgl nvidia-settings nvidia-utils lib32-nvidia-utils
-	sed -i '/^HOOKS=/ s/\<kms\>//g' /etc/mkinitcpio.conf
-	mkinitcpio -P
-    fi
-
-  if [[ $gpuchoice == "amd" ]]
-    then
-        pacman -S --noconfirm mesa lib32-mesa xf86-video-amdgpu vulkan-radeon lib32-vulkan-radeon libva-mesa-driver lib32-libva-mesa-driver mesa-vdpau lib32-mesa-vdpau
-    fi
- 
+  if lspci | grep -i "nvidia" > /dev/null; then
+    pacman -S --noconfirm nvidia nvidia-libgl lib32-nvidia-libgl nvidia-settings nvidia-utils lib32-nvidia-utils
+    sed -i '/^HOOKS=/ s/\<kms\>//g' /etc/mkinitcpio.conf
+    mkinitcpio -P
+  elif lspci | grep -i "amd\|ati" > /dev/null; then
+    pacman -S --noconfirm mesa lib32-mesa xf86-video-amdgpu vulkan-radeon lib32-vulkan-radeon libva-mesa-driver lib32-libva-mesa-driver mesa-vdpau lib32-mesa-vdpau
+  elif lspci | grep -i "intel" > /dev/null; then
+    pacman -S --noconfirm mesa lib32-mesa vulkan-intel lib32-vulkan-intel
+  else
+  echo "the graphics card in this system could not be detected, skipping installation."
+  echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
   echo -e "\033[1mfinalizing installation...\033[0m"
   systemctl enable gdm.service
   drivetype=$(cat /sys/block/sda/queue/rotational)
