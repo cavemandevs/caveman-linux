@@ -1,6 +1,5 @@
 import os
 import getpass
-<<<<<<< HEAD
 import subprocess
 input("Welcome to CaveInstall! (Press ENTER to continue...)\n")
 input("By continuing, you recognize that you have read the license (https://caernarferon.github.io/caveman/license)\n")
@@ -12,7 +11,6 @@ input("By continuing, you understand that you've read the license (https://caern
 input("The license is also available on the installation media.")
 input("It's available at ~/LICENSE")
 start = input("Would you like to start the installation?(Y/N) ")
->>>>>>> 8a676987d891829f55b841063a7d78591274bb1f
 if start.lower() == "y":
     print("Starting CaveInstall...")
 else:
