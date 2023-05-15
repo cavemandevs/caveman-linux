@@ -1,18 +1,25 @@
 import os
 import getpass
+<<<<<<< HEAD
+import subprocess
+input("Welcome to CaveInstall! (Press ENTER to continue...)\n")
+input("By continuing, you recognize that you have read the license (https://caernarferon.github.io/caveman/license)\n")
+start = input("Would you like to start the installation? (Y/N)\n")
+=======
 import json
 input("Welcome to CaveInstall! (Press ENTER to continue...)")
 input("By continuing, you understand that you've read the license (https://caernarferon.github.io/caveman/license)")
 input("The license is also available on the installation media.")
 input("It's available at ~/LICENSE")
 start = input("Would you like to start the installation?(Y/N) ")
+>>>>>>> 8a676987d891829f55b841063a7d78591274bb1f
 if start.lower() == "y":
     print("Starting CaveInstall...")
 else:
     exit("Installation aborted")
 class Caveinstall:
     def __init__(self):
-        pass
+        self.version = "0.1"
     def infogather(self):
         """collect data for installer"""
         self.hostname = input("What do you want your hostname to be? ")
@@ -38,3 +45,12 @@ class Caveinstall:
         
         if start.lower() != "y":
             exit('aborted installation')
+    
+    def whatdrivedoesthisfoolhave(self, disk):
+        output = subprocess.check_output(["lsblk", "-no", "NAME,TYPE", disk]).decode().strip().split()
+        if len(output) == 2 and output[1] == 'disk':
+            if 'nvme' in output[0]:
+                return 'nvme'
+            elif 'sd' in output[0]:
+                return 'sata'
+        return "something dun fucked up"
