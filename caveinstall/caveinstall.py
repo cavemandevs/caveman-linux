@@ -44,11 +44,3 @@ class Caveinstall:
         if start.lower() != "y":
             exit('aborted installation')
     
-    def whatdrivedoesthisfoolhave(self, disk):
-        output = subprocess.check_output(["lsblk", "-no", "NAME,TYPE", disk]).decode().strip().split()
-        if len(output) == 2 and output[1] == 'disk':
-            if 'nvme' in output[0]:
-                return 'nvme'
-            elif 'sd' in output[0]:
-                return 'sata'
-        return "something dun fucked up"
