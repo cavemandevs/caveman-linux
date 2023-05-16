@@ -1,18 +1,14 @@
 import os
 import getpass
 import subprocess
+#cool stuff
 input("Welcome to CaveInstall! (Press ENTER to continue...)\n")
-input("By continuing, you recognize that you have read the license (https://caernarferon.github.io/caveman/license)\n")
-start = input("Would you like to start the installation? (Y/N)\n")
-=======
-import json
-input("Welcome to CaveInstall! (Press ENTER to continue...)")
 input("By continuing, you understand that you've read the license (https://caernarferon.github.io/caveman/license)")
 input("The license is also available on the installation media.")
 input("It's available at ~/LICENSE")
-start = input("Would you like to start the installation?(Y/N) ")
-if start.lower() == "y":
-    print("Starting CaveInstall...")
+shart = input("Would you like to start the installation?(Y/N) ")
+if shart.lower() == "y":
+    print(f"{shart}Starting CaveInstall...")
 else:
     exit("Installation aborted")
 class Caveinstall:
@@ -20,20 +16,22 @@ class Caveinstall:
         self.version = "0.1"
     def infogather(self):
         """collect data for installer"""
-        self.hostname = input("What do you want your hostname to be? ")
-        self.locale = input("What will your locale be? ")
-        self.root_password = ""
-        self.confirmroot_password = ""
-        while self.root_password != self.confirmroot_password:
-            self.root_password = getpass.getpass("What will your root password be?: ")
-            self.confirmroot_password = getpass.getpass("Confirm your root password plz:")
-        self.username = input("What do you want your username to be?")
+        hostname = input("What do you want your hostname to be? ")
+        locale = input("What will your locale be? ")
+        root_password = True
+        confirmroot_password = False
+        root_password = getpass.getpass("What will your root password be?: ")
+        confirmroot_password = getpass.getpass("Confirm your root password plz:")
+        while root_password != confirmroot_password:
+            root_password = getpass.getpass("Sorry, try entering it again?: ")
+            confirmroot_password = getpass.getpass("Confirm your root password plz:")
+        username = input("What do you want your username to be?")
         os.system("lsblk | grep 'nvme0n1'")
         return {
-            "hostname": self.hostname,
-            "locale": self.locale,
-            "rootpasswd": self.root_password,
-            "username": self.username
+            "hostname": hostname,
+            "locale": locale,
+            "rootpasswd": root_password,
+            "username": username
         }
     def install(self):
         input("Its time to install!")
@@ -43,4 +41,5 @@ class Caveinstall:
         
         if start.lower() != "y":
             exit('aborted installation')
-    
+            
+print(Caveinstall.infogather(self=1))
