@@ -110,7 +110,7 @@ if [[ $user_input == "InstallCavemanLinux" ]]; then
 
 	echo "Installation Started!"
 	echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-	echo -e "\033[1mirror and pacman setup\033[0m"
+	echo -e "\033[1mmirror and pacman setup\033[0m"
 	echo
 	echo "please choose a country for your pacman mirrors"
 	echo "you are allowed to sepearate each country with commas, and each country must start with a capital letter"
@@ -187,7 +187,7 @@ if [[ $user_input == "InstallCavemanLinux" ]]; then
 	echo 'LOGO=archlinux-logo' >> /usr/lib/os-release
 	ln -sf /usr/lib/os-release /etc/os-release
 	# installing yay
-	$uidtousername=$(awk -F':' -v uid=1000 '$3 == uid { print $1 }' /etc/passwd)
+	uidtousername=$(awk -F':' -v uid=1000 '$3 == uid { print $1 }' /etc/passwd)
 	sudo -i -u $uidtousername pacman -S --needed git base-devel
 	sudo -i -u $uidtousername git clone https://aur.archlinux.org/yay.git
 	sudo -i -u $uidtousername cd yay
