@@ -1,19 +1,18 @@
-# Caveman Linux : the next crappiest OS to hit the markets!
+# <div align="center"> caveman linux!</div>
+### <div align="center"> the next crappiest OS to hit the markets</div>
+---
 
-## upcoming features:
+## features:
 - better version of GNOME!
 - insanely fast package management!
 - one billion extensions 
 - stable!
+- based on Arch Linux
+- designed for beginners to Linux
+- simple user interface design
 
-## specifications
-- built on Arch Linux
-- WILL be installed on a 17 y/o Dell studioslim d40s computer for testing
+## okay, but why base it off Arch Linux?
+we believe that Arch Linux is a amazing and stable operating system, and we believe that a rolling release system is very good because it provides newer software. by basing our project on Arch Linux, we get all of these benefits, but with our own modifications.
 
-## Audit Logs
-* idk if this will be made using git comments to a dummy file or not
-* commit logs btw
-
-
-
-
+## isn't Arch Linux meant to be for "advanced users"?
+most people say that, however, we've added multiple features to make sure that beginners won't have to worry about certain issues. imagine this as a version of Arch Linux, but already built for you!
