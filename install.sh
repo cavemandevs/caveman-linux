@@ -96,10 +96,8 @@ echo and you have read the README.md file before installing.
 echo
 echo To Install, please type in "InstallCavemanLinux" and press enter.
 
-VERIFY_PHRASE="InstallCavemanLinux"
 read -p "Please enter the phrase to continue: " user_input
-if [[ "$user_input" == "$VERIFY_PHRASE" ]]
-then
+if [[ $user_input == "InstallCavemanLinux" ]]; then
 	echo "Starting Installation"
 	seconds=10
 
