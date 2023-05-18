@@ -34,6 +34,15 @@
 # if we're going to install yay we still need to make a post logon script
 # we can always use profile.d and rm -f it later
 
+if [ `id -u` != 0 ]; then
+	echo -e "\e[1;31mnon root account detected\e[0m"
+	echo
+	echo "you are not running this as root"
+	echo "to continue the installation, this section should be run as root."
+	echo "please run this as root, and try again."
+	exit 0
+fi
+
 echo 
 cat textlogo.txt
 echo
