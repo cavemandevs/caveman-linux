@@ -188,10 +188,10 @@ if [[ $user_input == "InstallCavemanLinux" ]]; then
 	ln -sf /usr/lib/os-release /etc/os-release
 	# installing yay
 	uidtousername=$(awk -F':' -v uid=1000 '$3 == uid { print $1 }' /etc/passwd)
-	sudo -i -u $uidtousername pacman -S --needed git base-devel
-	sudo -i -u $uidtousername git clone https://aur.archlinux.org/yay.git
-	sudo -i -u $uidtousername cd yay
-	sudo -i -u $uidtousername makepkg -si
+	sudo su - $uidtousername
+	git clone https://aur.archlinux.org/yay.git
+	cd yay
+	makepkg -si
 	echo "yay has been installed (yay!)"
 	echo "done!"
 	echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
