@@ -25,7 +25,7 @@
 # integrate rock to system
 # make exclusive wallpapers
 # [DONE] add colored text (if we have time)
-# change /etc/os-release information
+# [DONE] change /etc/os-release information
 # [DONE] add graphics driver support options
 # [DONE] add ssd detection and add trim
 
@@ -156,6 +156,7 @@ if [[ "$user_input" == "$VERIFY_PHRASE" ]]; then
 		echo "the graphics card in this system could not be detected, skipping installation."
 	echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
 	echo -e "\033[1mfinalizing installation...\033[0m"
+	# detect solid state drives and install support software if found
 	drivetype=$(cat /sys/block/sda/queue/rotational)
 	nvmedrivetype=$(ls /dev | grep nvme)
 	if [[ "$drivetype" == "0" ]]; then
@@ -166,10 +167,26 @@ if [[ "$user_input" == "$VERIFY_PHRASE" ]]; then
 		systemctl enable fstrim.timer
 	else
 		echo "no solid state drives were detected, skipping fstrim installation.."
+	# installing firewall and enabling services on startup
 	pacman -S --noconfirm ufw
 	ufw enable
 	systemctl enable ufw.service
 	systemctl enable gdm
+	# changing os-release information
+	rm -f /usr/lib/os-release
+	rm -f /etc/os-release
+	echo 'NAME="Caveman Linux"' >> /usr/lib/os-release
+	echo 'PRETTY_NAME="Caveman Linux"' >> /usr/lib/os-release
+	echo 'ID=caveman' >> /usr/lib/os-release
+	echo 'ID_LIKE=arch' >> /usr/lib/os-release
+	echo 'BUILD_ID=rolling' >> /usr/lib/os-release
+	echo 'HOME_URL="https://github.com/caernarferon/caveman-linux"' >> /usr/lib/os-release
+	echo 'DOCUMENTATION_URL="https://github.com/caernarferon/caveman-linux"' >> /usr/lib/os-release
+	echo 'SUPPORT_URL="https://github.com/caernarferon/caveman-linux"' >> /usr/lib/os-release
+	echo 'BUG_REPORT_URL="https://github.com/caernarferon/caveman-linux/issues"' >> /usr/lib/os-release
+	echo 'PRIVACY_POLICY_URL="https://github.com/caernarferon/caveman-linux"' >> /usr/lib/os-release
+	echo 'LOGO=archlinux-logo' >> /usr/lib/os-release
+	ln -sf /usr/lib/os-release /etc/os-release
 	echo "done!"
 	echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
 	echo -e "\e[1;32minstallation complete! rebooting system...\e[0m"
