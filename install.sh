@@ -91,93 +91,88 @@ echo To Install, please type in "InstallCavemanLinux" and press enter.
 VERIFY_PHRASE="InstallCavemanLinux"
 read -p "Please enter the phrase to continue: " user_input
 if [[ "$user_input" == "$VERIFY_PHRASE" ]]; then
-  echo "Starting Installation"
+	echo "Starting Installation"
+	seconds=10
 
-  seconds=10 # are you high 
+	while [ $seconds -gt 0 ]
+	do
+		echo "Seconds remaining [Press Control + C to force quit]: $seconds"
+		sleep 1
+		seconds=$(( $seconds - 1 ))
+	done
 
-  while [ $seconds -gt 0 ]
-  do
-      echo "Seconds remaining [Press Control + C to force quit]: $seconds"
-      sleep 1
-      seconds=$(( $seconds - 1 ))
-  done
-
-  echo "Installation Started!"
-  
-  echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-  echo -e "\033[1mirror and pacman setup\033[0m"
-  echo
-  echo "please choose a country for your pacman mirrors"
-  echo "you are allowed to sepearate each country with commas, and each country must start with a capital letter"
-  echo "example: Canada, France"
-  read COUNTRY
-  sed -i "/\[multilib\]/,/Include/"'s/^#//' /etc/pacman.conf; sed -i '/^#.*ParallelDownloads =.*/s/^#//' /etc/pacman.conf; sed -i '/^#.*ParallelDownloads =.*/s/[[:digit:]]*/10/' /etc/pacman.conf
-  pacman -Syu --noconfirm
-  pacman -S --noconfirm --needed reflector
-  reflector --country $COUNTRY --latest 10 --protocol https --sort rate --save /etc/pacman.d/mirrorlist --verbose
-  echo "done!"
-  # select best mirrors and refresh them every week
-  echo -e "\033[1msetting up mirror refresh scripts...\033[0m"
-  cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.bak
-  rm /etc/xdg/reflector/reflector.conf
-  echo "--save /etc/pacman.d/mirrorlist" >> /etc/xdg/reflector/reflector.conf
-  echo "--country $COUNTRY" >> /etc/xdg/reflector/reflector.conf
-  echo "--protocol https" >> /etc/xdg/reflector/reflector.conf
-  echo "--latest 10" >> /etc/xdg/reflector/reflector.conf
-  echo "--sort rate" >> /etc/xdg/reflector/reflector.conf
-  systemctl enable reflector.timer
-  echo "mirrors will now be refreshed every week on startup."
-  echo "done!"
-  echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-  # installing packages
-  echo -e "\033[1minstalling packages\033[0m"
-  pacman -Syu
-  pacman -S --noconfirm xorg xorg-server gnome gdm neofetch firefox vim gnome-tweaks libreoffice-fresh htop git
-  echo "done!"
-  echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-  echo -e "\033[1minstalling graphics card drivers & support software...\033[0m" 
-  if lspci | grep -i "nvidia" > /dev/null; then
-    pacman -S --noconfirm nvidia nvidia-libgl lib32-nvidia-libgl nvidia-settings nvidia-utils lib32-nvidia-utils
-    sed -i '/^HOOKS=/ s/\<kms\>//g' /etc/mkinitcpio.conf
-    mkinitcpio -P
-  elif lspci | grep -i "amd\|ati" > /dev/null; then
-    pacman -S --noconfirm mesa lib32-mesa xf86-video-amdgpu vulkan-radeon lib32-vulkan-radeon libva-mesa-driver lib32-libva-mesa-driver mesa-vdpau lib32-mesa-vdpau
-  elif lspci | grep -i "intel" > /dev/null; then
-    pacman -S --noconfirm mesa lib32-mesa vulkan-intel lib32-vulkan-intel
-  else
-  echo "the graphics card in this system could not be detected, skipping installation."
-  echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-  echo -e "\033[1mfinalizing installation...\033[0m"
-  systemctl enable gdm.service
-  drivetype=$(cat /sys/block/sda/queue/rotational)
-  nvmedrivetype=$(ls /dev | grep nvme)
-  if [[ "$drivetype" == "0" ]]
-    then
-        pacman -S --noconfirm util-linux
-        systemctl enable fstrim.timer
-    fi   
-  if [[ "$nvmedrivetype" == "nvme*" ]]
-    then
-        pacman -S --noconfirm util-linux
-        systemctl enable fstrim.timer
-    fi 
-  pacman -S --noconfirm ufw
-  ufw enable
-  systemctl enable ufw.service
-  echo "done!"
-  echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-  echo -e "\033[1minstallation complete! rebooting system...\033[0m"
-
-  seconds=10
-
-  while [ $seconds -gt 0 ]
-  do
-      echo "Seconds remaining: $seconds"
-      sleep 1
-      seconds=$(( $seconds - 1 ))
-      reboot
-  done
+	echo "Installation Started!"
+	echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+	echo -e "\033[1mirror and pacman setup\033[0m"
+	echo
+	echo "please choose a country for your pacman mirrors"
+	echo "you are allowed to sepearate each country with commas, and each country must start with a capital letter"
+	echo "example: Canada, France"
+	read COUNTRY
+	sed -i "/\[multilib\]/,/Include/"'s/^#//' /etc/pacman.conf; sed -i '/^#.*ParallelDownloads =.*/s/^#//' /etc/pacman.conf; sed -i '/^#.*ParallelDownloads =.*/s/[[:digit:]]*/10/' /etc/pacman.conf
+	pacman -Syu --noconfirm
+	pacman -S --noconfirm --needed reflector
+	reflector --country $COUNTRY --latest 10 --protocol https --sort rate --save /etc/pacman.d/mirrorlist --verbose
+	echo "done!"
+	# select best mirrors and refresh them every week
+	echo -e "\033[1msetting up mirror refresh scripts...\033[0m"
+	cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.bak
+	rm /etc/xdg/reflector/reflector.conf
+	echo "--save /etc/pacman.d/mirrorlist" >> /etc/xdg/reflector/reflector.conf
+	echo "--country $COUNTRY" >> /etc/xdg/reflector/reflector.conf
+	echo "--protocol https" >> /etc/xdg/reflector/reflector.conf
+	echo "--latest 10" >> /etc/xdg/reflector/reflector.conf
+	echo "--sort rate" >> /etc/xdg/reflector/reflector.conf
+	systemctl enable reflector.timer
+	echo "mirrors will now be refreshed every week on startup."
+	echo "done!"
+	echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+	# installing packages
+	echo -e "\033[1minstalling packages\033[0m"
+	pacman -Syu
+	pacman -S --noconfirm xorg xorg-server gnome gdm neofetch firefox vim gnome-tweaks libreoffice-fresh htop git
+	echo "done!"
+	echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+	echo -e "\033[1minstalling graphics card drivers & support software...\033[0m" 
+	if lspci | grep -i "nvidia" > /dev/null; then
+		pacman -S --noconfirm nvidia nvidia-libgl lib32-nvidia-libgl nvidia-settings nvidia-utils lib32-nvidia-utils
+		sed -i '/^HOOKS=/ s/\<kms\>//g' /etc/mkinitcpio.conf
+		mkinitcpio -P
+	elif lspci | grep -i "amd\|ati" > /dev/null; then
+		pacman -S --noconfirm mesa lib32-mesa xf86-video-amdgpu vulkan-radeon lib32-vulkan-radeon libva-mesa-driver lib32-libva-mesa-driver mesa-vdpau lib32-mesa-vdpau
+	elif lspci | grep -i "intel" > /dev/null; then
+		pacman -S --noconfirm mesa lib32-mesa vulkan-intel lib32-vulkan-intel
+	else
+		echo "the graphics card in this system could not be detected, skipping installation."
+	echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+	echo -e "\033[1mfinalizing installation...\033[0m"
+	drivetype=$(cat /sys/block/sda/queue/rotational)
+	nvmedrivetype=$(ls /dev | grep nvme)
+	if [[ "$drivetype" == "0" ]]; then
+		pacman -S --noconfirm util-linux
+		systemctl enable fstrim.timer
+	elif [[ "$nvmedrivetype" == "nvme*" ]]; then
+		pacman -S --noconfirm util-linux
+		systemctl enable fstrim.timer
+	else
+		echo "no solid state drives were detected, skipping fstrim installation.."
+	pacman -S --noconfirm ufw
+	ufw enable
+	systemctl enable ufw.service
+	systemctl enable gdm
+	echo "done!"
+	echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+	echo -e "\033[1minstallation complete! rebooting system...\033[0m"
+	
+	seconds=10
+	while [ $seconds -gt 0 ]
+	do
+		echo "Seconds remaining: $seconds"
+		sleep 1
+		seconds=$(( $seconds - 1 ))
+		reboot
+	done
 else
-    echo "installation cancelled, please start over."
-    exit 1
+	echo "installtion cancelled, please start over."
+	exit 1
 fi
