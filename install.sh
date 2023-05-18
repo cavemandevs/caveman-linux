@@ -204,7 +204,9 @@ then
 		seconds=$(( $seconds - 1 ))
 		reboot
 	done
-else
+elif
 	echo "installtion cancelled, please start over."
 	exit
+else
+	echo "hello!"
 fi
