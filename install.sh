@@ -151,6 +151,7 @@ if [[ $user_input == "InstallCavemanLinux" ]]; then
 		pacman -S --noconfirm mesa lib32-mesa vulkan-intel lib32-vulkan-intel
 	else
 		echo "the graphics card in this system could not be detected, skipping installation."
+	fi
 	echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
 	echo -e "\033[1mfinalizing installation...\033[0m"
 	# detect solid state drives and install support software if found
@@ -164,6 +165,7 @@ if [[ $user_input == "InstallCavemanLinux" ]]; then
 		systemctl enable fstrim.timer
 	else
 		echo "no solid state drives were detected, skipping fstrim installation.."
+	fi
 	# installing firewall and enabling services on startup
 	pacman -S --noconfirm ufw
 	ufw enable
@@ -202,9 +204,7 @@ if [[ $user_input == "InstallCavemanLinux" ]]; then
 		seconds=$(( $seconds - 1 ))
 		reboot
 	done
-elif
-	echo "installtion cancelled, please start over."
-	exit
 else
-	echo "hello!"
+	echo "installation cancelled, please start over."
+	exit 1
 fi
