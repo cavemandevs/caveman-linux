@@ -24,7 +24,7 @@
 # TO BE ADDED:
 # integrate rock to system
 # make exclusive wallpapers
-# add colored text (if we have time)
+# [DONE] add colored text (if we have time)
 # change /etc/os-release information
 # [DONE] add graphics driver support options
 # [DONE] add ssd detection and add trim
@@ -53,7 +53,7 @@ echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
 echo "Make sure you read the README.md before continuing."
 echo "also, please read the LICENSE file for the license."
 echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-echo -e "\033[1mWARNING: WE ARE NOT RESPONSIBLE FOR DAMAGES TO YOUR COMPUTER.\033[0m"
+echo -e "\e[1;31mWARNING: WE ARE NOT RESPONSIBLE FOR DAMAGES TO YOUR COMPUTER.\e[0m"
 echo -e "\e[3m(so please make sure you know what you're doing!)\e[0m"
 echo
 echo "Please choose an option:"
@@ -73,7 +73,7 @@ while true; do
 done
 
 echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-echo -e "\033[1mCONFIRMATION\033[0m"
+echo -e "\e[1;31mCONFIRMATION\e[0m"
 echo
 echo This is a confirmation to install the software
 echo WE ARE NOT RESPONSIBLE FOR DAMAGES TO YOUR COMPUTER.
@@ -88,9 +88,10 @@ while true; do
 done
 
 echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-echo -e "\033[1mFINAL CONFIRMATION\033[0m"
+echo -e "\e[1;31mFINAL CONFIRMATION\e[0m"
 echo
-echo -e "\033[1mLAST WARNING:\033[0m"
+echo -e "\e[1;31mlast warning!\e[0m"
+echo
 echo -e This the FINAL confirmation to install the software
 echo By installng, you acknowledge that we are NOT RESPONSIBLE for damages to your computer,
 echo and you have read the README.md file before installing.
@@ -171,8 +172,7 @@ if [[ "$user_input" == "$VERIFY_PHRASE" ]]; then
 	systemctl enable gdm
 	echo "done!"
 	echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-	echo -e "\033[1minstallation complete! rebooting system...\033[0m"
-	
+	echo -e "\e[1;32minstallation complete! rebooting system...\e[0m"
 	seconds=10
 	while [ $seconds -gt 0 ]
 	do
