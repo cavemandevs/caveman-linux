@@ -30,9 +30,7 @@
 # [DONE] add ssd detection and add trim
 
 # IDEAS:
-# maybe use rok over yay?
-# if we're going to install yay we still need to make a post logon script
-# we can always use profile.d and rm -f it later
+# we'll install yay for now, and we'll add rok later
 
 if [ `id -u` != 0 ]; then
 	echo -e "\e[1;31mnon root account detected\e[0m"
@@ -187,6 +185,13 @@ if [[ "$user_input" == "$VERIFY_PHRASE" ]]; then
 	echo 'PRIVACY_POLICY_URL="https://github.com/caernarferon/caveman-linux"' >> /usr/lib/os-release
 	echo 'LOGO=archlinux-logo' >> /usr/lib/os-release
 	ln -sf /usr/lib/os-release /etc/os-release
+	# installing yay
+	$uidtousername=$(awk -F':' -v uid=1000 '$3 == uid { print $1 }' /etc/passwd)
+	sudo -i -u $uidtousername pacman -S --needed git base-devel
+	sudo -i -u $uidtousername git clone https://aur.archlinux.org/yay.git
+	sudo -i -u $uidtousername cd yay
+	sudo -i -u $uidtousername makepkg -si
+	echo "yay has been installed (yay!)"
 	echo "done!"
 	echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
 	echo -e "\e[1;32minstallation complete! rebooting system...\e[0m"
