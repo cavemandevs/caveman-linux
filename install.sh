@@ -137,18 +137,18 @@ if [[ $user_input == "InstallCavemanLinux" ]]; then
 	# installing packages
 	echo -e "\033[1minstalling packages\033[0m"
 	pacman -Syu
-	pacman -S --noconfirm xorg xorg-server gnome gdm neofetch firefox vim gnome-tweaks libreoffice-fresh htop git
+	pacman -S --noconfirm --needed xorg xorg-server gnome gdm neofetch firefox vim gnome-tweaks libreoffice-fresh htop git
 	echo "done!"
 	echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
 	echo -e "\033[1minstalling graphics card drivers & support software...\033[0m" 
 	if lspci | grep -i "nvidia" > /dev/null; then
-		pacman -S --noconfirm nvidia nvidia-libgl lib32-nvidia-libgl nvidia-settings nvidia-utils lib32-nvidia-utils
+		pacman -S --noconfirm --needed nvidia nvidia-libgl lib32-nvidia-libgl nvidia-settings nvidia-utils lib32-nvidia-utils
 		sed -i '/^HOOKS=/ s/\<kms\>//g' /etc/mkinitcpio.conf
 		mkinitcpio -P
 	elif lspci | grep -i "amd\|ati" > /dev/null; then
-		pacman -S --noconfirm mesa lib32-mesa xf86-video-amdgpu vulkan-radeon lib32-vulkan-radeon libva-mesa-driver lib32-libva-mesa-driver mesa-vdpau lib32-mesa-vdpau
+		pacman -S --noconfirm --needed mesa lib32-mesa xf86-video-amdgpu vulkan-radeon lib32-vulkan-radeon libva-mesa-driver lib32-libva-mesa-driver mesa-vdpau lib32-mesa-vdpau
 	elif lspci | grep -i "intel" > /dev/null; then
-		pacman -S --noconfirm mesa lib32-mesa vulkan-intel lib32-vulkan-intel
+		pacman -S --noconfirm --needed mesa lib32-mesa vulkan-intel lib32-vulkan-intel
 	else
 		echo "the graphics card in this system could not be detected, skipping installation."
 	fi
