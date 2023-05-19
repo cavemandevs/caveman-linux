@@ -186,15 +186,25 @@ if [[ $user_input == "InstallCavemanLinux" ]]; then
 	echo 'PRIVACY_POLICY_URL="https://github.com/caernarferon/caveman-linux"' >> /usr/lib/os-release
 	echo 'LOGO=archlinux-logo' >> /usr/lib/os-release
 	ln -sf /usr/lib/os-release /etc/os-release
-	# installing yay
-	uidtousername=$(awk -F':' -v uid=1000 '$3 == uid { print $1 }' /etc/passwd)
-	sudo su - $uidtousername
-	git clone https://aur.archlinux.org/yay.git
-	cd yay
-	makepkg -si
-	echo "yay has been installed (yay!)"
-	echo "done!"
 	echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+	echo -e "\033[1moptional applications\033[0m"
+	echo "Would you like to install yay?"
+	echo "yay is an AUR helper that can assist you in finding and installing packages from the AUR."
+	echo "we recommend you install this so you can get AUR access out of the box."
+	echo "if you would like to, feel free to skip yay installation."
+	echo "if you choose to skip, you can always install this later."
+	echo "learn more about yay at: https://github.com/Jguer/yay"
+	echo "notice: when installing yay you may be prompted to press Y. if you do get this prompt, please press yes."
+	echo
+	uidtousername=$(awk -F':' -v uid=1000 '$3 == uid { print $1 }' /etc/passwd)
+	while true; do
+		read -p "would you like to install yay? [Y/N]: " yn
+		case $yn in
+			[Yy]* ) sudo -u $uidtousername ./yayinstall.sh; break;;
+			[Nn]* ) echo "yay installation has been skipped."; break;;
+			* ) echo "Please choose a valid option."
+    		esac
+	done
 	echo -e "\e[1;32minstallation complete! rebooting system...\e[0m"
 	seconds=10
 	while [ $seconds -gt 0 ]
