@@ -150,7 +150,7 @@ if [[ $user_input == "InstallCavemanLinux" ]]; then
 	elif lspci | grep -i "intel" > /dev/null; then
 		pacman -S --noconfirm --needed mesa lib32-mesa vulkan-intel lib32-vulkan-intel
 	else
-		echo "the graphics card in this system could not be detected, skipping installation."
+		echo "the graphics card in this system could not be detected, cancelling installation."
 	fi
 	echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
 	echo -e "\033[1mfinalizing installation...\033[0m"
