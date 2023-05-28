@@ -9,7 +9,7 @@ def make_root_passwd():
         print("Passwords do not match, please try again.")
         rootPass = getpass.getpass("Please create a root password, so people don't screw around with your pc. Make sure to remember it!: ")
         rootPassConfirm = getpass.getpass("Please confirm your root password: ")
-    subprocess.run(['passwd'], input=rootPass.encode(), text=True)
+    subprocess.run(['passwd'], input=rootPass, text=True)
 
 def generate_user():
     username = input("Enter your username here: ")
@@ -20,7 +20,7 @@ def generate_user():
         usernamePasswordConfirm = getpass.getpass("Please create a root password, so people don't screw around with your pc. Make sure to remember it!: ")
     usernamePassword = str(usernamePassword)
     subprocess.run(['useradd', '-m', username])
-    subprocess.run(['passwd', username], input=usernamePassword.encode(), text=True)
+    subprocess.run(['passwd', username], input=usernamePassword, text=True)
 
 make_root_passwd()
 generate_user()
