@@ -18,10 +18,10 @@ def generate_user():
     while usernamePassword != usernamePasswordConfirm:
         print("Passwords do not match, please try again.")
         usernamePasswordConfirm = getpass.getpass("Please create a root password, so people don't screw around with your pc. Make sure to remember it!: ")
+    usernamePassword = str(usernamePassword)
     subprocess.run(['useradd', '-m', username])
     subprocess.run(['passwd', username], input=usernamePassword.encode(), text=True)
 
-# Main script
 make_root_passwd()
 generate_user()
 print("yay it works")
