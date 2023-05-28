@@ -9,7 +9,7 @@ def make_root_passwd():
         print("Passwords do not match, please try again.")
         rootPass = getpass.getpass("Please create a root password, so people don't screw around with your pc. Make sure to remember it!: ")
         rootPassConfirm = getpass.getpass("Please confirm your root password: ")
-    os.systemprint('"username:root" | sudo chpasswd')
+    os.system('"username:root" | sudo chpasswd')
 def generate_user():
     username = input("Enter your username here: ")
     usernamePassword = getpass.getpass(f"Enter the password for {username}: ")
