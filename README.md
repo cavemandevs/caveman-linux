@@ -24,6 +24,3 @@ we believe that Arch Linux is a amazing and stable operating system, and also th
 
 ## isn't Arch Linux meant to be for "advanced users"?
 We believe that Arch Linux is a very powerful distro. Our goal as the Caveman Dev Team is to bring such a powerful distro to beginners by giving Arch "Training Wheels" Such modifications could show to the average Linuxer that Arch does excel as a general use distro
-
-<div align="center">
-<img alt="GitHub" src="https://img.shields.io/github/license/caernarferon/caveman-linux">
