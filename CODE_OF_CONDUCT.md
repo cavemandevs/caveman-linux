@@ -45,19 +45,19 @@ In a place where everyone works together, conflicts are expected. That's why we 
 
 ## What's not allowed
 
-During Caveman Linux development, we strive to create a diverse experience. To achieve this, we've provided a few examples of things that are NOT allowed.
+The Caveman Devs are committed to building a safe and inclusive environment for all developers and community members. To ensure a positive experience, we have established the following guidelines that you should read.
 
 1. **Deliberate intimidation, stalking, following, and leaking personal information**
-	- We ask that you do NOT intimidate, stalk, or follow community members. You may NOT use certain technologies, look through commit histories (with the intent to stalk), or track people online. We also ask that you do NOT leak personally identifiable information of community members online.
+	- We kindly request that you refrain from engaging in deliberate intimidation, stalking, following, or leaking personal information (doxxing). It is very important to respect the privacy and well-being of other developers and community members.
 
 2. **Sexist, racist, homophobic, transphobic, ableist language or otherwise exclusionary language.**
-	- This includes deliberately referring to someone by a gender that they do not identify with, deadnaming, and/or questioning the legitimacy of an individual's gender identity. This also includes making exclusionary "jokes". If you're unsure if a word is derogatory, don't use it. Also, we ask that you do NOT look through commit histories with the intent to search for deadnames.
+	- This includes deliberately referring to someone by a gender that they do not identify with, referring to someone by a name they no longer use (deadnaming), and/or questioning the legitimacy of an individual's gender identity. This also includes making exclusionary "jokes". If you're unsure if a word is offensive, don't use it. Also, we advise against looking through commit histories with the intent to search for deadnames.
 
 3. **Unwelcome sexual attention or behavior that contributes to a sexualized environment.**
-	- We try to keep a pretty clean environment. While the usual swear word here and there is allowed (as long as it not directed to anyone), we ask that you do not introduce certain things that contributes to a sexualized environment. This includes sexualized comments, jokes or imagery in interactions, communications, presentation materials, and social media posts related to Caveman Software. 
+	- Here at the Caveman Linux Repo, we strive to maintain a clean and inclusive environment. While we understand that the occasional use of swear words or insults may occur, we kindly ask that sexualized behavior be kept to a minimum. This includes making sexualized comments and/or sharing inappropriate jokes or imagery in any form of media related to or affiliated with Caveman Software.
 
 4. **Violence or threats of violence.**
-	- We ask that you do NOT do acts of violence or do threats of violence. This activity is NOT tolerated offline, online, and on official Caveman Software boards. This includes incitement of violence toward any individual, including encouraging a person to commit self-harm activities.
+	- We ask that you do NOT engage in acts of violence or make threats of violence. This activity is NOT tolerated offline, online, well anywhere actually... This includes incitement of violence toward any individual, including encouraging a person to self-harm, or making bomb threats.
 
 5. **Influencing or encouraging inappropriate behavior.** If you influence or encourage another person to violate the Code of Conduct, you may face the same consequences as if you had violated the Code of Conduct.
 
@@ -68,7 +68,7 @@ The Caveman Developer Board will serve consequences based on the weight and seve
 - Blocked from making commits
 - Banned from community interaction
 - Blacklisted from Caveman Software events, or other Caveman Software related projects
-- Warnings issued to the rule breaker 
+- Warnings
 
 ## Reporting Incidents
 You may report violations by sending an email to this address, or messaging a member of the Caveman Software Board.
