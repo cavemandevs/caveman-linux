@@ -1,5 +1,5 @@
 # <div align="center"> Caveman Linux!</div>
-### <div align="center"> "So simple... Even a caveman could use it!" </div>
+### <div align="center"> "Cozy Computing!" </div>
 ---
 
 <div align="center">
