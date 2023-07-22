@@ -14,8 +14,6 @@
 #           Please read the LICENSE file for the license            #
 #####################################################################
 
-# !!! TESTING BRANCH !!!
-
 # NOTES (moved here because of potential bug):
 # we need to do a lot of testing for the script
 # the solution to the networkmanager problem has been fixed
