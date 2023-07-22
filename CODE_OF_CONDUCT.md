@@ -1,5 +1,5 @@
 # Caveman Linux Code of Conduct
-### Last Updated: 2023-07-17
+### Last Updated: 2023-07-21
 
 ## Doing Our Part
 As Open Source maintainers, contributors, and fans, we believe that you should be able to develop without any borders. We value diversity and inclusion, and we encourage EVERYONE to participate. We strive to provide a space where you are welcome, regardless of:
@@ -54,10 +54,10 @@ The Caveman Devs are committed to building a safe and inclusive environment for 
 	- This includes deliberately referring to someone by a gender that they do not identify with, referring to someone by a name they no longer use (deadnaming), and/or questioning the legitimacy of an individual's gender identity. This also includes making exclusionary "jokes". If you're unsure if a word is offensive, don't use it. Also, we advise against looking through commit histories with the intent to search for deadnames.
 
 3. **Unwelcome sexual attention or behavior that contributes to a sexualized environment.**
-	- Here at the Caveman Linux Repo, we strive to maintain a clean and inclusive environment. While we understand that the occasional use of swear words or insults may occur, we kindly ask that sexualized behavior be kept to a minimum. This includes making sexualized comments and/or sharing inappropriate jokes or imagery in any form of media related to or affiliated with Caveman Software.
+	- During Caveman Linux Development, we strive to maintain a clean and inclusive environment. While we allow the usual swear word here and there (as long as it's not targeted towards anyone), we kindly ask that sexualized behavior be kept to a minimum. This includes making sexualized comments and/or sharing inappropriate jokes or imagery in any form of media related to or affiliated with Caveman Software.
 
 4. **Violence or threats of violence.**
-	- We ask that you do NOT engage in acts of violence or make threats of violence. This activity is NOT tolerated offline, online, well anywhere actually... This includes incitement of violence toward any individual, including encouraging a person to self-harm, or making bomb threats.
+	- We ask that you do NOT engage in acts of violence or make threats of violence. This activity is NOT tolerated offline, online, and on official Caveman Development discussion boards. This includes incitement of violence toward any individual, including encouraging a person to self-harm, or making bomb threats.
 
 5. **Influencing or encouraging inappropriate behavior.** If you influence or encourage another person to violate the Code of Conduct, you may face the same consequences as if you had violated the Code of Conduct.
 
@@ -85,6 +85,3 @@ The Caveman Linux Code of Conduct is a modified version of the GNOME Code of Con
 
 You may take a look at the original source here:
 https://wiki.gnome.org/Foundation/CodeOfConduct/
-
-
-
