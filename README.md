@@ -11,15 +11,11 @@
 </div>
 
 ## What is Caveman Linux?
-
-At its base, Caveman Linux is an Arch Linux-based Linux operating system aimed and providing a quality experience to its users.
-Above that, however, Caveman Linux hopes to be a tunnel for new users into the metaphorical ecosystem of Linux
-The Caveman Project uses GNOME as its desktop manager, a highly customizeable DE capable of hosting a multitude of users from new
-to veteran experience in the world of Linux
+In a nutshell, Caveman Linux is a Linux distribution aimed at providing a quality experience to beginners. We provide sane defaults out of the box so that users won't have to spend time manually configuring and setting many things up. 
 
 ## Why Caveman?
 
-# Main Features: 
+### Main Features: 
 - GNOME with our improvements!
 - Insanely fast package management!
 - An extremely reliable AUR helper 
@@ -28,26 +24,20 @@ to veteran experience in the world of Linux
 - designed for beginners to Linux
 - simple user interface design
 
-# Why Arch?
-we believe that Arch Linux is a amazing and stable operating system, and also that a rolling release system is superior to a point release system.
-This is because newer software can reach users faster. By building our project on Arch Linux, a versatile and amazing distro,
-we can provide breaking edge software alongside incredible stability and usability
+### Why Arch?
+We believe that Arch Linux is an amazing choice because of it's rolling release model. Users won't have to upgrade to a "Caveman Linux 2", which means people won't have to deal with the hassle of upgrading. We also believe that the AUR can assist beginners in getting their environment set up, because of the high package count. 
 
-# Isnt Arch too Advanced?
-There is a stigma against usage of the Arch Linux distribution when it comes to beginners, many claim it is too unstable
-and too difficult to understand as a new Linux user. But we hope to change that. We believe that Arch Linux is a very powerful distro.
-Our goal as the Caveman Dev Team is to bring such a powerful distro to beginners by giving Arch "Training Wheels"
-Such modifications could show to the average Linuxer that Arch does excel as a general use distro
+If it exists, its probably on the AUR!
+
+### Isnt Arch too Advanced?
+There is a stigma about how Arch Linux is a challenging distribution to beginners. As Caveman Linux developers, we try to make the process as user friendly as possible. We believe that the power of Arch Linux can bring a whole new level of computing, and we would like to bring that to you. It's like giving Arch Linux some training wheels, so you can begin to understand Linux.
 
 ## Installation Guide
+Coming soon!
 
-## Credits
+## Contributing
+If you would like to contribute to the Caveman Linux development, please read the Code of Conduct (CODE_OF_CONDUCT.md). Thanks for contributing!
 
-# Main Contributors
-- spacefault: Co-Admin & Head Coder 
-- caerneferon: Co-Admin & Creative Director
-- xMqme: Main Writer
+## Acknowledgements 
+Please read the CREDITS file to see the list of contributors to Caveman Linux. 
 
-# Other
-- S-Panjwani: Misc
-- Chrome0STrashCan: Misc
