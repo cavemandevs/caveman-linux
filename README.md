@@ -10,7 +10,16 @@
 <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/caernarferon/caveman-linux">
 </div>
 
-## features:
+## What is Caveman Linux?
+
+At its base, Caveman Linux is an Arch Linux-based Linux operating system aimed and providing a quality experience to its users.
+Above that, however, Caveman Linux hopes to be a tunnel for new users into the metaphorical ecosystem of Linux
+The Caveman Project uses GNOME as its desktop manager, a highly customizeable DE capable of hosting a multitude of users from new
+to veteran experience in the world of Linux
+
+## Why Caveman?
+
+# Main Features: 
 - GNOME with our improvements!
 - Insanely fast package management!
 - An extremely reliable AUR helper 
@@ -19,18 +28,26 @@
 - designed for beginners to Linux
 - simple user interface design
 
-## okay, but why base it off Arch Linux?
-we believe that Arch Linux is a amazing and stable operating system, and also that a rolling release system is superior to a point release system because newer software can reach users faster. By building our project on Arch Linux, a versatile and amazing distro, we can provide breaking edge software alongside incredible stability and usability
+# Why Arch?
+we believe that Arch Linux is a amazing and stable operating system, and also that a rolling release system is superior to a point release system.
+This is because newer software can reach users faster. By building our project on Arch Linux, a versatile and amazing distro,
+we can provide breaking edge software alongside incredible stability and usability
 
-## isn't Arch Linux meant to be for "advanced users"?
-We believe that Arch Linux is a very powerful distro. Our goal as the Caveman Dev Team is to bring such a powerful distro to beginners by giving Arch "Training Wheels" Such modifications could show to the average Linuxer that Arch does excel as a general use distro
+# Isnt Arch too Advanced?
+There is a stigma against usage of the Arch Linux distribution when it comes to beginners, many claim it is too unstable
+and too difficult to understand as a new Linux user. But we hope to change that. We believe that Arch Linux is a very powerful distro.
+Our goal as the Caveman Dev Team is to bring such a powerful distro to beginners by giving Arch "Training Wheels"
+Such modifications could show to the average Linuxer that Arch does excel as a general use distro
 
-## the Gnu/Linux ecosystem - courtesy of xMqme
+## Installation Guide
 
+## Credits
 
-I'd just like to interject for a moment. What you're refering to as Linux, is in fact, GNU/Linux, or as I've recently taken to calling it, GNU plus Linux. Linux is not an operating system unto itself, but rather another free component of a fully functioning GNU system made useful by the GNU corelibs, shell utilities and vital system components comprising a full OS as defined by POSIX.
+# Main Contributors
+- spacefault: Co-Admin & Head Coder 
+- caerneferon: Co-Admin & Creative Director
+- xMqme: Main Writer
 
-Many computer users run a modified version of the GNU system every day, without realizing it. Through a peculiar turn of events, the version of GNU which is widely used today is often called Linux, and many of its users are not aware that it is basically the GNU system, developed by the GNU Project.
-
-There really is a Linux, and these people are using it, but it is just a part of the system they use. Linux is the kernel: the program in the system that allocates the machine's resources to the other programs that you run. The kernel is an essential part of an operating system, but useless by itself; it can only function in the context of a complete operating system. Linux is normally used in combination with the GNU operating system: the whole system is basically GNU with Linux added, or GNU/Linux. All the so-called Linux distributions are really distributions of GNU/Linux!
-
+# Other
+- S-Panjwani: Misc
+- Chrome0STrashCan: Misc
