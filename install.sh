@@ -1,20 +1,29 @@
 #!/bin/bash
 
-#####################################################################
-#                       * . caveman linux! .*                       #
-#####################################################################
-#     A small school project built by Devin, Bradley and Soham      #
-#                        Check us out here!                         #
-#                                                                   #
-#    ninetyninebytes (devin): https://github.com/ninetyninebytes    #
-#      caernarferon (bradley): https://github.com/caernarferon      #
-#         S-Panjwani (soham): https://github.com/S-Panjwani         #
-#####################################################################
-#  This project is made with the GNU General Public License v2.0.   #
-#           Please read the LICENSE file for the license            #
-#####################################################################
-
-# !!! TESTING BRANCH !!!
+######################################################################
+#                                                                    #
+#                  caveman linux! | cozy computing!                  #
+#                                                                    #
+######################################################################
+#                                                                    #
+#    A simple and fast Linux distribution designed for beginners     #
+#                      to computers and Linux.                       #
+#                                                                    #
+######################################################################
+#                                                                    #
+#        Made with <3 by Caveman Software, and the community!        #
+#                         Check us out here:                         #
+#                   https://github.com/cavemandevs                   #
+#                                                                    #
+#           and read the CREDITS file for the full credits           #
+#                   (thanks to our contributors!)                    #
+#                                                                    #
+######################################################################
+#                                                                    #
+# This project is licensed under the GNU General Public License v2.0 #
+#         Please read the LICENSE file to read the license.          #
+#                                                                    #
+######################################################################
 
 # NOTES (moved here because of potential bug):
 # we need to do a lot of testing for the script
@@ -33,12 +42,20 @@
 # we'll install yay for now, and we'll add rok later
 
 if [ `id -u` != 0 ]; then
-	echo -e "\e[1;31mnon root account detected\e[0m"
-	echo
-	echo "you are not running this as root"
-	echo "to continue the installation, this section should be run as root."
-	echo "please run this as root, and try again."
-	exit 0
+    echo -e "\e[1;31mnon root account detected!\e[0m"
+    echo
+    echo "you are not running the installer as a root user."
+    echo "this can result in a partial installation, and an unstable system."
+    echo "please run this as root, and try again."
+    echo
+    echo "if you're unsure what to do, look for support on the Caveman Official Github,"
+    echo "or contact your system administrator."
+    echo
+    echo "if you're seeing this message over and over again,"
+    echo "please report it to the Caveman Linux developers on Github."
+    echo
+    echo "https://github.com/cavemandevs/caveman-linux/"
+    exit 1
 fi
 
 echo 

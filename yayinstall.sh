@@ -1,5 +1,6 @@
 #!/bin/bash
-
-git clone https://aur.archlinux.org/yay-bin.git
-cd yay-bin
-makepkg -si
+# migrate to paru
+git clone https://aur.archlinux.org/paru
+cd paru
+makepkg -sir
+rm -rf ../paru
