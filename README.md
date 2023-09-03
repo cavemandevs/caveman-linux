@@ -1,5 +1,5 @@
-# <div align="center"> Caveman Linux!</div>
-### <div align="center"> <em>"Cozy Computing!"</em> </div>
+# <div align="center"> caveman winyux! </div>
+### <div align="center"> <em>"cozy computing!"</em> </div>
 ---
 
 <div align="center">
@@ -10,34 +10,33 @@
 <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/caernarferon/caveman-linux">
 </div>
 
-## What is Caveman Linux?
-In a nutshell, Caveman Linux is a Linux distribution aimed at providing a quality experience to beginners. We provide sane defaults out of the box so that users won't have to spend time manually configuring and setting many things up. 
+## what is caveman winyux?
+in a nyutsheww, caveman winyux is a winyux distwibution aimed at pwoviding a quawity expewience to beginnyews. we pwovide sanye defauwts out of the box so that usews won't have to spend time manyuawwy configuwing and setting many things up. 
 
-## Why Caveman?
+## why caveman?
 
-### Main Features: 
-- GNOME with our improvements!
-- Insanely fast package management!
-- An extremely reliable AUR helper 
-- Stable!
-- based on Arch Linux
-- designed for beginners to Linux
-- simple user interface design
+### main featuwes: 
+- gnyome with ouw impwuvments >w< 
+- insanyewy fast package manyagement ;;w;; 
+- an extwemewy wewiabwe auw hewpew 
+- stabwe UwU 
+- based on awch winyux
+- designyed fow beginnyews to winyux
+- simpwe usew intewface design
 
-### Why Arch?
-We believe that Arch Linux is an amazing choice because of it's rolling release model. Users won't have to upgrade to a "Caveman Linux 2", which means people won't have to deal with the hassle of upgrading. We also believe that the AUR can assist beginners in getting their environment set up, because of the high package count. 
+### why awch?
+we bewieve that awch winyux is an amazing choice because of it's wowwing wewease modew. usews won't have to upgwade to a "caveman winyux 2", which means peopwe won't have to deaw with the hasswe of upgwading. we awso bewieve that the auw can assist beginnyews in getting theiw enviwonment set up, because of the high package count. 
 
-If it exists, its probably on the AUR!
+if it exists, its pwobabwy on the auw ;;w;; 
 
-### Isnt Arch too Advanced?
-There is a stigma about how Arch Linux is a challenging distribution to beginners. As Caveman Linux developers, we try to make the process as user friendly as possible. We believe that the power of Arch Linux can bring a whole new level of computing, and we would like to bring that to you. It's like giving Arch Linux some training wheels, so you can begin to understand Linux.
+### isnt awch too advanced?
+thewe is a stigma about how awch winyux is a chawwenging distwibution to beginnyews. as caveman winyux devewopews, we twy to make the pwocess as usew fwiendwy as possibwe. we bewieve that the powew of awch winyux can bwing a whowe nyew wevew of computing, and we wouwd wike to bwing that to you. it's wike giving awch winyux some twainying wheews, so you can begin to undewstand winyux.
 
-## Installation Guide
-Coming soon!
+## instawwation guide
+coming soon ;;w;; 
 
-## Contributing
-If you would like to contribute to the Caveman Linux development, please read the Code of Conduct (CODE_OF_CONDUCT.md). Thanks for contributing!
+## contwibuting
+if you wouwd wike to contwibute to the caveman winyux devewopment, pwease wead the code of conduct (code_of_conduct.md). thanks fow contwibuting >w< 
 
-## Acknowledgements 
-Please read the CREDITS file to see the list of contributors to Caveman Linux. 
-
+## acknyowwedgements 
+pwease wead the cwedits fiwe to see the wist of contwibutows to caveman winyux. 
