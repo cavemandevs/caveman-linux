@@ -43,6 +43,25 @@
 
 # v2 of the caveman installer
 
+checkuid () {
+  if [ `id -u` != 0 ]; then
+    echo -e "\e[1;31mnon root account detected!\e[0m"
+    echo
+    echo "you are not running the installer as a root user."
+    echo "this can result in a partial installation, and an unstable system."
+    echo "please run this as root, and try again."
+    echo
+    echo "if you're unsure what to do, look for support on the Caveman Official Github,"
+    echo "or contact your system administrator."
+    echo
+    echo "if you're seeing this message over and over again,"
+    echo "please report it to the Caveman Linux developers on Github."
+    echo
+    echo "https://github.com/cavemandevs/caveman-linux/"
+    exit 1
+  fi
+}
+
 checkdeps () {
     installerdeps=$(pacman -Q | grep -o libnewt)
     if [ "$installerdeps" != "libnewt" ]
@@ -125,6 +144,7 @@ confirm () {
 }
 
 # checkdeps
+checkuid
 welcome
 confirm
 echo "complete!"
