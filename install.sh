@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 ######################################################################
 #                                                                    #
@@ -41,7 +41,10 @@
 # IDEAS:
 # we'll install yay for now, and we'll add rok later
 
-if [ `id -u` != 0 ]; then
+# v2 of the caveman installer
+
+checkuid () {
+  if [ `id -u` != 0 ]; then
     echo -e "\e[1;31mnon root account detected!\e[0m"
     echo
     echo "you are not running the installer as a root user."
@@ -56,182 +59,93 @@ if [ `id -u` != 0 ]; then
     echo
     echo "https://github.com/cavemandevs/caveman-linux/"
     exit 1
+  fi
+}
+
+checkdeps () {
+    installerdeps=$(pacman -Q | grep -o libnewt)
+    if [ "$installerdeps" != "libnewt" ]
+    then
+	  echo -e "\e[1;31mFATAL: Missing Dependencies\e[0m"
+	  echo
+	  echo "The installer was not able to continue for the following reason:"
+	  echo "package [libnewt] was not found"
+	  echo
+	  echo "This means that you have a corrupted ISO. Please redownload the ISO and try again."
+	  echo
+	  echo -e "If you have redownloaded this ISO and the error persists, please report it to the Caveman Linux Developers."
+	  echo -e "visit github.com/cavemandevs/caveman-linux"
+	  exit 1
+    fi
+}
+
+welcome () {
+  BACKTITLE="Caveman Linux Installer / Main Menu"
+
+  whiptail --msgbox "Welcome to Caveman Linux!\n\nCaveman Linux is a Linux Distribution aimed for beginners. It's designed from the ground up to be easy and intuitive to use.\n\nThis installer may look daunting, but don't fret! You can use your arrow keys to select input fields and buttons, and press enter to continue. We're sure you'll get hang of it as you go on! :)\n\nWe hope you enjoy using Caveman Linux!" 20 60
+
+  OPTION=$(whiptail --title "Caveman Linux Installer" --backtitle "$BACKTITLE" --menu "Please select an option.\n\nIf you would like to continue the installation, press the 'Begin Installation' button.\n\nIf you would like to enter a shell, you may select option 2. We would like to mention that shell access is recommended for Administrators only, and enter only if you know what you're doing!\n\nAnd finally, to power off the computer, you may select option 3." 20 90 4 \
+  "1" "Begin Installation" \
+  "2" "Enter Shell" \
+  "3" "Shutdown Computer" 3>&1 1>&2 2>&3 \
+  || echo "Cancelled")
+
+  if [ "$OPTION" != "Cancelled" ]; then
+      case $OPTION in
+          1)
+              echo "continuing"
+              ;;
+          2)
+              echo "here be dragons!"
+              echo
+              echo "You've just entered the shell interface."
+              echo "You may proceed to do a custom installation, or do other things here."
+              echo "Please do be warned that doing custom installations, and deviating from the standard Caveman Linux Installer may result in instability, and is NOT supported by Caveman Developers."
+              echo 
+              echo "If you have entered this menu by mistake, you may re-enter the installer by typing in cavemaninstaller, and pressing enter."
+              ;;
+          3)
+              echo "simulated shutdown"
+              exit 0
+              ;;
+         *)
+             whiptail --msgbox "$BACKTITLE\n\nInvalid option" 10 40
+             ;;
+      esac
+  else
+       whiptail --msgbox "Cancelled\n\nYou have selected to exit the installer. You will be redirected to the shell, and you can re-enter by typing in cavemaninstaller, and pressing enter." 20 35
 fi
+}
 
-echo 
-cat textlogo.txt
-echo
-echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-echo -e "\033[1mCaveman Linux Installer\033[0m"
-echo "This will configure Arch Linux with our modifications"
-echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-echo "Make sure you read the README.md before continuing."
-echo "also, please read the LICENSE file for the license."
-echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-echo -e "\e[1;31mWARNING: WE ARE NOT RESPONSIBLE FOR DAMAGES TO YOUR COMPUTER.\e[0m"
-echo -e "\e[3m(so please make sure you know what you're doing!)\e[0m"
-echo
-echo "Please choose an option:"
-echo
-echo "S: Start the Installation"
-echo "C: Cancel the Installation"
-echo "R: View the README.md file"
+confirm () {
+  echo -e "\e[1;31m>>> CONFIRMATION REQUIRED <<<\e[0m"
+  echo
+  echo "The screen has gone blank to get your attention."
+  echo "There's nothing wrong, and we just need your confirmation to continue."
+  echo "If you would like to turn back, now's your chance."
+  echo "Press CTRL+C to exit the installer, and return to the terminal."
+  echo
+  echo "If you would like to continue, read below"
+  echo "Please enter "InstallCavemanLinux" exactly as seen on the screen to continue (without the quotes)"
+  echo
+  echo -n ">>> "
+  read confirmcode
+  if [[ "$confirmcode" != "InstallCavemanLinux" ]]; then
+    echo -e "\e[1;31m>>> CONFIRMATION REJECTED <<<\e[0m"
+    echo The Confirmation was rejected, and you must start over.
+    sleep 5
+    exit 1
+  else
+    echo -e "\e[1;32m>>> CONFIRMATION APPROVED <<<\e[0m"
+    echo Approved!
+    echo Installation will resume in a few seconds.
+    sleep 5
+  fi
+}
 
-while true; do
-    read -p "Your Selection [S/C/R]: " scr
-    case $scr in
-        [Ss]* ) break;;
-        [Cc]* ) echo installation cancelled!; exit;;
-        [Rr]* ) cat README.md;;
-        * ) echo "Please choose a valid selection.";;
-    esac
-done
-
-echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-echo -e "\e[1;31mCONFIRMATION\e[0m"
-echo
-echo This is a confirmation to install the software
-echo WE ARE NOT RESPONSIBLE FOR DAMAGES TO YOUR COMPUTER.
-
-while true; do
-    read -p "Do you want to Install? [Y/N]: " yn
-    case $yn in
-        [Yy]* ) break;;
-        [Nn]* ) echo "installation cancelled, please start over."; exit;;
-        * ) echo "Please choose a valid option."
-    esac
-done
-
-echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-echo -e "\e[1;31mFINAL CONFIRMATION\e[0m"
-echo
-echo -e "\e[1;31mlast warning!\e[0m"
-echo
-echo -e This the FINAL confirmation to install the software
-echo By installng, you acknowledge that we are NOT RESPONSIBLE for damages to your computer,
-echo and you have read the README.md file before installing.
-echo
-echo To Install, please type in "InstallCavemanLinux" and press enter.
-
-read -p "Please enter the phrase to continue: " user_input
-if [[ $user_input == "InstallCavemanLinux" ]]; then
-	echo "Starting Installation"
-	seconds=10
-
-	while [ $seconds -gt 0 ]
-	do
-		echo "Seconds remaining [Press Control + C to force quit]: $seconds"
-		sleep 1
-		seconds=$(( $seconds - 1 ))
-	done
-
-	echo "Installation Started!"
-	echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-	echo -e "\033[1mmirror and pacman setup\033[0m"
-	echo
-	echo "please choose a country for your pacman mirrors"
-	echo "you are allowed to sepearate each country with commas, and each country must start with a capital letter"
-	echo "example: Canada, France"
-	read COUNTRY
-	sed -i "/\[multilib\]/,/Include/"'s/^#//' /etc/pacman.conf; sed -i '/^#.*ParallelDownloads =.*/s/^#//' /etc/pacman.conf; sed -i '/^#.*ParallelDownloads =.*/s/[[:digit:]]*/10/' /etc/pacman.conf
-	pacman -Syu --noconfirm
-	pacman -S --noconfirm --needed reflector
-	reflector --country $COUNTRY --latest 10 --protocol https --sort rate --save /etc/pacman.d/mirrorlist --verbose
-	echo "done!"
-	# select best mirrors and refresh them every week
-	echo -e "\033[1msetting up mirror refresh scripts...\033[0m"
-	cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.bak
-	rm /etc/xdg/reflector/reflector.conf
-	echo "--save /etc/pacman.d/mirrorlist" >> /etc/xdg/reflector/reflector.conf
-	echo "--country $COUNTRY" >> /etc/xdg/reflector/reflector.conf
-	echo "--protocol https" >> /etc/xdg/reflector/reflector.conf
-	echo "--latest 10" >> /etc/xdg/reflector/reflector.conf
-	echo "--sort rate" >> /etc/xdg/reflector/reflector.conf
-	systemctl enable reflector.timer
-	echo "mirrors will now be refreshed every week on startup."
-	echo "done!"
-	echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-	# installing packages
-	echo -e "\033[1minstalling packages\033[0m"
-	pacman -Syu
-	pacman -S --noconfirm --needed xorg xorg-server gnome gdm neofetch firefox vim gnome-tweaks libreoffice-fresh htop git
-	echo "done!"
-	echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-	echo -e "\033[1minstalling graphics card drivers & support software...\033[0m" 
-	if lspci | grep -i "nvidia" > /dev/null; then
-		pacman -S --noconfirm --needed nvidia nvidia-libgl lib32-nvidia-libgl nvidia-settings nvidia-utils lib32-nvidia-utils
-		sed -i '/^HOOKS=/ s/\<kms\>//g' /etc/mkinitcpio.conf
-		mkinitcpio -P
-	elif lspci | grep -i "amd\|ati" > /dev/null; then
-		pacman -S --noconfirm --needed mesa lib32-mesa xf86-video-amdgpu vulkan-radeon lib32-vulkan-radeon libva-mesa-driver lib32-libva-mesa-driver mesa-vdpau lib32-mesa-vdpau
-	elif lspci | grep -i "intel" > /dev/null; then
-		pacman -S --noconfirm --needed mesa lib32-mesa vulkan-intel lib32-vulkan-intel
-	else
-		echo "the graphics card in this system could not be detected, cancelling installation."
-	fi
-	echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-	echo -e "\033[1mfinalizing installation...\033[0m"
-	# detect solid state drives and install support software if found
-	drivetype=$(cat /sys/block/sda/queue/rotational)
-	nvmedrivetype=$(ls /dev | grep nvme)
-	if [[ "$drivetype" == "0" ]]; then
-		pacman -S --noconfirm util-linux
-		systemctl enable fstrim.timer
-	elif [[ "$nvmedrivetype" == "nvme*" ]]; then
-		pacman -S --noconfirm util-linux
-		systemctl enable fstrim.timer
-	else
-		echo "no solid state drives were detected, skipping fstrim installation.."
-	fi
-	# installing firewall and enabling services on startup
-	pacman -S --noconfirm ufw
-	ufw enable
-	systemctl enable ufw.service
-	systemctl enable gdm
-	# changing os-release information
-	rm -f /usr/lib/os-release
-	rm -f /etc/os-release
-	echo 'NAME="Caveman Linux"' >> /usr/lib/os-release
-	echo 'PRETTY_NAME="Caveman Linux"' >> /usr/lib/os-release
-	echo 'ID=caveman' >> /usr/lib/os-release
-	echo 'ID_LIKE=arch' >> /usr/lib/os-release
-	echo 'BUILD_ID=rolling' >> /usr/lib/os-release
-	echo 'HOME_URL="https://github.com/caernarferon/caveman-linux"' >> /usr/lib/os-release
-	echo 'DOCUMENTATION_URL="https://github.com/caernarferon/caveman-linux"' >> /usr/lib/os-release
-	echo 'SUPPORT_URL="https://github.com/caernarferon/caveman-linux"' >> /usr/lib/os-release
-	echo 'BUG_REPORT_URL="https://github.com/caernarferon/caveman-linux/issues"' >> /usr/lib/os-release
-	echo 'PRIVACY_POLICY_URL="https://github.com/caernarferon/caveman-linux"' >> /usr/lib/os-release
-	echo 'LOGO=archlinux-logo' >> /usr/lib/os-release
-	ln -sf /usr/lib/os-release /etc/os-release
-	echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-	echo -e "\033[1moptional applications\033[0m"
-	echo "Would you like to install yay?"
-	echo "yay is an AUR helper that can assist you in finding and installing packages from the AUR."
-	echo "we recommend you install this so you can get AUR access out of the box."
-	echo "if you would like to, feel free to skip yay installation."
-	echo "if you choose to skip, you can always install this later."
-	echo "learn more about yay at: https://github.com/Jguer/yay"
-	echo "notice: when installing yay you may be prompted to press Y. if you do get this prompt, please press yes."
-	echo
-	uidtousername=$(awk -F':' -v uid=1000 '$3 == uid { print $1 }' /etc/passwd)
-	while true; do
-		read -p "would you like to install yay? [Y/N]: " yn
-		case $yn in
-			[Yy]* ) sudo -u $uidtousername ./yayinstall.sh; break;;
-			[Nn]* ) echo "yay installation has been skipped."; break;;
-			* ) echo "Please choose a valid option."
-    		esac
-	done
-	echo -e "\e[1;32minstallation complete! rebooting system...\e[0m"
-	seconds=10
-	while [ $seconds -gt 0 ]
-	do
-		echo "Seconds remaining: $seconds"
-		sleep 1
-		seconds=$(( $seconds - 1 ))
-		reboot
-	done
-else
-	echo "installation cancelled, please start over."
-	exit 1
-fi
+# checkdeps
+checkuid
+welcome
+confirm
+echo "complete!"
+exit 0

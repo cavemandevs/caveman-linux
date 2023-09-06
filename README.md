@@ -10,7 +10,12 @@
 <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/caernarferon/caveman-linux">
 </div>
 
-## features:
+## What is Caveman Linux?
+In a nutshell, Caveman Linux is a Linux distribution aimed at providing a quality experience to beginners. We provide sane defaults out of the box so that users won't have to spend time manually configuring and setting many things up. 
+
+## Why Caveman?
+
+### Main Features: 
 - GNOME with our improvements!
 - Insanely fast package management!
 - An extremely reliable AUR helper 
@@ -19,18 +24,20 @@
 - designed for beginners to Linux
 - simple user interface design
 
-## okay, but why base it off Arch Linux?
-we believe that Arch Linux is a amazing and stable operating system, and also that a rolling release system is superior to a point release system because newer software can reach users faster. By building our project on Arch Linux, a versatile and amazing distro, we can provide breaking edge software alongside incredible stability and usability
+### Why Arch?
+We believe that Arch Linux is an amazing choice because of it's rolling release model. Users won't have to upgrade to a "Caveman Linux 2", which means people won't have to deal with the hassle of upgrading. We also believe that the AUR can assist beginners in getting their environment set up, because of the high package count. 
 
-## isn't Arch Linux meant to be for "advanced users"?
-We believe that Arch Linux is a very powerful distro. Our goal as the Caveman Dev Team is to bring such a powerful distro to beginners by giving Arch "Training Wheels" Such modifications could show to the average Linuxer that Arch does excel as a general use distro
+If it exists, its probably on the AUR!
 
-## the Gnu/Linux ecosystem - courtesy of xMqme
+### Isnt Arch too Advanced?
+There is a stigma about how Arch Linux is a challenging distribution to beginners. As Caveman Linux developers, we try to make the process as user friendly as possible. We believe that the power of Arch Linux can bring a whole new level of computing, and we would like to bring that to you. It's like giving Arch Linux some training wheels, so you can begin to understand Linux.
 
+## Installation Guide
+Coming soon!
 
-I'd just like to interject for a moment. What you're refering to as Linux, is in fact, GNU/Linux, or as I've recently taken to calling it, GNU plus Linux. Linux is not an operating system unto itself, but rather another free component of a fully functioning GNU system made useful by the GNU corelibs, shell utilities and vital system components comprising a full OS as defined by POSIX.
+## Contributing
+If you would like to contribute to the Caveman Linux development, please read the Code of Conduct (CODE_OF_CONDUCT.md). Thanks for contributing!
 
-Many computer users run a modified version of the GNU system every day, without realizing it. Through a peculiar turn of events, the version of GNU which is widely used today is often called Linux, and many of its users are not aware that it is basically the GNU system, developed by the GNU Project.
-
-There really is a Linux, and these people are using it, but it is just a part of the system they use. Linux is the kernel: the program in the system that allocates the machine's resources to the other programs that you run. The kernel is an essential part of an operating system, but useless by itself; it can only function in the context of a complete operating system. Linux is normally used in combination with the GNU operating system: the whole system is basically GNU with Linux added, or GNU/Linux. All the so-called Linux distributions are really distributions of GNU/Linux!
+## Acknowledgements 
+Please read the CREDITS file to see the list of contributors to Caveman Linux. 
 
