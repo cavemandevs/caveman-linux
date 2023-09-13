@@ -283,7 +283,15 @@ summary () {
 	echo "These are the following settings that will be installed with your copy of Caveman Linux."
 	echo
 	echo "Partitioning"
-	echo "└─Target disk [**WILL BE ERASED**]:" $targetdisk
+	echo "├─Target disk [**WILL BE ERASED**]:" $targetdisk
+	echo "├─Swap Size: 16G"
+	echo "└─Filesystem: btrfs"
+	echo "  ├─Subvolume: @"
+	echo "  ├─Subvolume: @home"
+	echo "  ├─Subvolume: @var_log"
+	echo "  ├─Subvolume: @pacman_pkg"
+	echo "  ├─Subvolume: @swap"
+	echo "  └─Subvolume: @snapshots"
 	echo 
 	echo "Region Settings"
 	echo "├─Mirror Location:" $mirrorlocation
@@ -294,10 +302,13 @@ summary () {
 	echo "├─Username:" $standardusername
 	echo "└─Root Account: ENABLED"
 	echo
-	echo "Automated Installations"
-	echo "├─Video Drivers"
-	echo "├─Disk Support drivers"
-	echo "└─Rok AUR Helper (coming soon)"
+	echo "Automatically Installed"
+	echo "├─Rok AUR Helper (coming soon)"
+	echo "└─System Drivers"
+	echo "  ├─Video Drivers (Automatically Detected by the Installation Assistant)"
+	echo "  ├─Audio Drivers (pipewire)"
+	echo "  ├─Disk Support software"
+	echo "  └─Extra Device Drivers"
 	echo
 	echo "Once you're ready, press ENTER to begin installation."
 	echo
