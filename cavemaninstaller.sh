@@ -88,13 +88,19 @@ welcome () {
 
 entershell () {
 	clear
-	echo "here be dragons!"
+	echo -e "\e[1;31m>>> ENTERED SHELL <<<\e[0m"
+	echo
+	echo -e "\033[1mhere be dragons!\033[0m"
         echo
         echo "You've just entered the shell interface."
         echo "You may proceed to do a custom installation, or do other things here."
-        echo "Please do be warned that doing custom installations, and deviating from the standard Caveman Linux Installer may result in instability, and is NOT supported by Caveman Developers."
-        echo 
-        echo "If you have entered this menu by mistake, you may re-enter the installer by typing in cavemaninstaller, and pressing enter."
+        echo
+	echo "Please do be warned that doing custom installations, "
+	echo "and deviating from the standard Caveman Linux Installer "
+	echo "may result in instability, and is NOT supported by Caveman Developers."
+        echo
+        echo "If you have entered the shell by mistake, you may re-enter the installer "
+	echo "by typing in cavemaninstaller, and pressing enter."
 	exit 0
 }
 
