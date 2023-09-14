@@ -51,11 +51,11 @@ def welcome():
 def netCheck(hosts_to_check):
     try:
         for host in hosts_to_check:
-            requests.get("https://" + host)
-            print("pinging: {host}")
+            requests.get(host)
+            print("done checking hosts")
             break
     except requests.exceptions.ConnectionError as e:
-            os.system("clear")
+            print(e)
             print("\033[91m\033[1mNetwork NOT FOUND!\033[0m")
             print("")
             print("A working network connection was not found.")
@@ -66,8 +66,9 @@ def netCheck(hosts_to_check):
             print("Please connect to the internet outside of the installer,")
             print("and try again.")
             exit() 
-
-hoststocheck = ("archlinux.org")
+    else:
+        print("please make an issue on the caveman linux github repo")
+hoststocheck =["https://archlinux.org"]
             
 def diskSetup():
     os.system("clear")
