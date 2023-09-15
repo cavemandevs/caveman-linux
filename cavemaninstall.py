@@ -1,7 +1,6 @@
 import os
 import time
-import socket
-
+import requests
 def welcome():
     os.system("clear")
     print("\033[1mCaveman Linux Installation Assistant - python Version\033[0m")
@@ -50,19 +49,13 @@ def welcome():
         print("Invalid choice. Please select a valid option (1/2/3).")
 
 def netCheck(hosts_to_check):
-    def is_host_reachable(host, port):
-        try:
-            socket.create_connection((host, port), timeout=5)
-            return True
-        except (socket.timeout, ConnectionRefusedError, OSError):
-            return False
-
-    for host, port in hosts_to_check:
-        if is_host_reachable(host, port):
-            print("Network is Online!")
+    try:
+        for host in hosts_to_check:
+            requests.get(host)
+            print("done checking hosts")
             break
-        else:
-            os.system("clear")
+    except requests.exceptions.ConnectionError as e:
+            print(e)
             print("\033[91m\033[1mNetwork NOT FOUND!\033[0m")
             print("")
             print("A working network connection was not found.")
@@ -72,12 +65,11 @@ def netCheck(hosts_to_check):
             print("")
             print("Please connect to the internet outside of the installer,")
             print("and try again.")
-            exit 
-
-hosts_to_check = [
-    ("example.com", 80), # just for checking, should be replaced with an https network test server
-]
-
+            exit() 
+    else:
+        print("please make an issue on the caveman linux github repo")
+hoststocheck =["https://archlinux.org"]
+            
 def diskSetup():
     os.system("clear")
     print("\033[1mDisk Configuration - Partitioning - Caveman Linux Installation Assistant / Screen 1 of X\033[0m")
@@ -90,11 +82,11 @@ def diskSetup():
     print("")
     os.system("lsblk")
     print("")
-    print("Make sure you select a disk and not a partition. The disk should not have a number at the end")
+    print("Make sure you select a disk and not a partition (nvme0n1, sda, sdb) The disk should not have a number at the end")
     print("")
     print("Please enter the target disk where Caveman Linux will be installed.")
     targetdisk = input(">>> ")
     
+netCheck(hoststocheck)
 welcome()
-netCheck(hosts_to_check)
 diskSetup()
