@@ -104,34 +104,6 @@ entershell () {
 	exit 0
 }
 
-
-confirm() {
-	clear
-	echo -e "\e[1;31m>>> CONFIRMATION REQUIRED <<<\e[0m"
-	echo
-	echo "The screen has gone blank to get your attention."
-	echo "There's nothing wrong, and we just need your confirmation to continue."
-	echo "If you would like to turn back, now's your chance."
-	echo "Press CTRL+C to exit the installer, and return to the terminal."
-	echo
-	echo "If you would like to continue, read below"
-	echo "Please enter "InstallCavemanLinux" exactly as seen on the screen to continue (without the quotes)"
-	echo
-	echo -n ">>> "
-	read confirmcode
-  	if [[ "$confirmcode" != "InstallCavemanLinux" ]]; then
-    		echo -e "\e[1;31m>>> CONFIRMATION REJECTED <<<\e[0m"
-    		echo The Confirmation was rejected, and you must start over.
-    		sleep 5
-    		exit 1
-  	else
-    		echo -e "\e[1;32m>>> CONFIRMATION APPROVED <<<\e[0m"
-    		echo Approved!
-    		echo Installation will resume in a few seconds.
-    		sleep 5
-  	fi
-}
-
 net-check () {
 	echo -e "\033[1mNetwork Settings - Network Check - Caveman Linux Installation Assistant\033[0m"
 	echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
@@ -319,12 +291,41 @@ summary () {
 	echo "Once you're ready, press ENTER to begin installation."
 	echo
 	read -p ">>> " confirmmoment
+	confirm
 }
+
+confirm() {
+	clear
+	echo -e "\e[1;31m>>> CONFIRMATION REQUIRED <<<\e[0m"
+	echo
+	echo "The screen has gone blank to get your attention."
+	echo "There's nothing wrong, and we just need your confirmation to continue."
+	echo "If you would like to turn back, now's your chance."
+	echo "Press CTRL+C to exit the installer, and return to the terminal."
+	echo
+	echo "If you would like to continue, read below"
+	echo "Please enter "InstallCavemanLinux" exactly as seen on the screen to continue (without the quotes)"
+	echo
+	echo -n ">>> "
+	read confirmcode
+	if [[ "$confirmcode" != "InstallCavemanLinux" ]]; then
+		echo -e "\e[1;31m>>> CONFIRMATION REJECTED <<<\e[0m"
+		echo "The Confirmation was rejected, and you must start over."
+		echo "Returning to Summary screen..."
+		sleep 5
+		summary
+	else
+		echo -e "\e[1;32m>>> CONFIRMATION APPROVED <<<\e[0m"
+		echo Approved!
+		echo Installation will resume in a few seconds.
+		sleep 5
+	fi
+}
+
 
 # usercheck, uncommented because installer is not done yet
 checkdeps
 welcome
-confirm
 net-check
 disksetup
 region
