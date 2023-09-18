@@ -128,7 +128,7 @@ void localeSetup() {
 void makeUser() {
     system("clear");
     std::cout << "This screen will help in creating a user" << std::endl;
-    std::cout << "" << std::endl;
+    std::cout << "The following is a list of reserved keywords" << std::endl;
     return;
 }
 
