@@ -95,19 +95,22 @@ void diskSetup() {
 
 void mirrorSetup() {
     system("clear");
-    std::cout << "Region Settings - Mirror Configuration - Caveman Linux Installation Assistant" << std::endl;
+    std::cout << "\033[1mRegion Settings - Mirror Configuration - Caveman Linux Installation Assistant\033[0m" << std::endl;
     std::cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << std::endl;
     std::cout << "Mirror Settings" << std::endl;
     std::cout << "What's a mirror?" << std::endl << std::endl;
-    std::cout << "A mirror is a server near you which helps you download and install packages" << std::endl;
+    std::cout << "A mirror is a server near you which helps you download and install packages." << std::endl;
     std::cout << "Selecting the right country is important for fast downloads and installations" << std::endl;
     std::cout << "When selecting a mirror, it is vital that you format like so: " << std::endl << std::endl;
     std::cout << "Canada, France" << std::endl << std::endl;
-    std::cout << "While it is possible to have two or more mirrors at once, it is not recommended" << std::endl << std::endl;
-    std::cout << "Region details are stored locally on your device, and downloaded packages are only visible to you and the mirrors. They cannot be seen by external attackers." << std::endl << std::endl;
+    std::cout << "While it is possible to select two or more countries at once, it is not recommended." << std::endl << std::endl;
+    std::cout << "\033[90mCaveman Software is committed to keeping your privacy safe and secure.\033[0m" << std::endl;
+    std::cout << "\033[90mYour region details will be kept offline, and locally on your device.\033[0m" << std::endl;
+    std::cout << "\033[90mThe packages you download will only be visible to the mirror, and will NOT be visible to outside attackers, and it's not visible to Caveman Software.\033[0m" << std::endl;
+    std::cout << "\033[90mThe mirror system uses HTTP Secure encryption layers to keep your package choices private.\033[0m" <<std::endl << std::endl;
     std::cout << "Please enter the country for your mirrors and then press ENTER" << std::endl;
     std::string mirrorLocations;
-    std::cout << ">>>>>";
+    std::cout << ">>> ";
     std::cin >> mirrorLocations;
 
     return;
