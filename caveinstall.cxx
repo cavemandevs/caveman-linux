@@ -58,13 +58,16 @@ void netCheck() {
     std::cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << std::endl;
     std::cout << "The Installation assistant is detecting active network connections. Please wait..." << std::endl;
     std::cout << "Connecting to: archlinux.org" <<std::endl <<std::endl;
-    int netConnected = system("ping -c3 archlinux.org");
+    int netConnected = system("ping -c4 archlinux.org");
     if (netConnected == 0) {
         std::cout << "\033[1;32mNetwork Connection found! Resuming Installation..\033[0m" << std::endl;
         sleep(5);
         return;
     }
     else {
+        system("clear");
+        std::cout << "\033[1mChecking Network Connection - FAILED - Caveman Linux Installation Assistant\033[0m" << std::endl;
+        std::cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << std::endl;
         std::cout << "\033[1;31mA working network connection was NOT found!\033[0m" << std::endl << std::endl;
         std::cout << "As of now, a network assistant is not available in the installer." << std::endl;
         std::cout << "Please exit the installer, and connect to the internet, and try again." << std::endl;
