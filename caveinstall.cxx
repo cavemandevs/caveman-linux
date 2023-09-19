@@ -53,7 +53,7 @@ void welcome() {
 
 void netCheck() {
     system("clear");
-    std::cout << "Checking Network Connection - Caveman Linux Installation Assistant" << std::endl;
+    std::cout << "\033[1mChecking Network Connection - Caveman Linux Installation Assistant\033[0m" << std::endl;
     std::cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << std::endl;
     std::cout << "The Installation assistant is detecting active network connections. Please wait..." << std::endl;
     std::cout << "Connecting to: archlinux.org" <<std::endl <<std::endl;
