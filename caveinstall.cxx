@@ -119,14 +119,16 @@ void mirrorSetup() {
 void timezoneSetup() {
 
     system("clear");
-    std::cout << "Region Settings - Timezone Configuration - Caveman Linux Installation Assistant" << std::endl;
+    std::cout << "\033[1mRegion Settings - Timezone Configuration - Caveman Linux Installation Assistant\033[0m" << std::endl;
     std::cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << std::endl;
     std::cout << "Timezone" << std::endl << std::endl;
     std::cout << "This screen will assist you in setting up a timezone" << std::endl;
-    std::cout << "The following is a list of available timezones: " << std::endl << std::endl;
-    system("timedatectl list-timezones");
+    std::cout << "A better implementation for this is coming soon." << std::endl << std::endl;
+    std::cout << "An example of a timezone code looks something like this:" << std::endl << std::endl;
+    std::cout << "Canada/Mountain" << std::endl << std::endl;
     std::cout << "Enter the timezone code and press ENTER: " << std::endl;
     std::string timezone;
+    std::cout << ">>> ";
     std::cin >> timezone;
 
     return;
@@ -134,10 +136,17 @@ void timezoneSetup() {
 
 void localeSetup() {
     system("clear");
-    std::cout << "This will help you set up locales" << std::endl;
-    std::cout << "These are the available locales. Please enter the name of ONE locale, preferably with UTF-8 encoding." << std::endl;
-    system("cat /etc/locale.gen");
+    std::cout << "\033[1mRegion Settings - Locale Configuration - Caveman Linux Installation Assistant\033[0m" << std::endl;
+    std::cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << std::endl;
+    std::cout << "Locale Configuration" << std::endl;
+    std::cout << "This screen will help you set up locales." << std::endl;
+    std::cout << "Once again, this section is very primitive, and it will be improved soon" << std::endl;
+    std::cout << "Here are some examples of locale codes:" << std::endl << std::endl;
+    std::cout << "English [US]       -->  en_US.UTF-8 UTF-8" << std::endl;
+    std::cout << "French [Canadian]  -->  fr_CA.UTF-8 UTF-8" << std::endl << std::endl;
+    std::cout << "Please enter the locale code, and press ENTER." << std::endl;
     std::string locale;
+    std::cout << ">>> ";
     std::cin >> locale;
     return;
 }
