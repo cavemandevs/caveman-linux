@@ -11,7 +11,7 @@ void welcome() {
     std::cout << "This software is released under the GPLv2 License" << std::endl << std::endl;
     std::cout << "2023 - 2023 Caveman Software & Contributors" << std::endl;
     std::cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << std::endl;
-    std::cout << "WARNING: NETWORKING SETUP IS UNSTABLE. PLEASE SET UP NETWORKING BEFORE USING THE INSTALLER" << std::endl;
+    std::cout << "\033[1;31mWARNING: NETWORKING SETUP IS UNSTABLE. PLEASE SET UP NETWORKING BEFORE USING THE INSTALLER\033[0m" << std::endl;
     std::cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << std::endl;
 
     while (1) {
@@ -26,10 +26,11 @@ void welcome() {
                      }
         else if (choice == 2) {
             system("clear");
-            std::cout << "You have entered the shell" << std::endl << std::endl;
+            std::cout << "\033[1;31m>>> ENTERED SHELL <<<\033[0m" << std::endl << std::endl;
             std::cout << "HERE BE DRAGONS!" << std::endl << std::endl;
-            std::cout << "You can continue and do a custom installation or run some other commands" << std::endl << std::endl;
-            std::cout << "Do be warned that doing custom installations and deviating from standard installation isn't officially supported and may result in instability" << std::endl << std::endl;
+            std::cout << "You can continue and do a custom installation or run some other commands here." << std::endl << std::endl;
+            std::cout << "Do be warned that doing custom installations, and deviating from the standard" << std::endl;
+            std::cout << "installation isn't officially supported and may result in instability." << std::endl << std::endl;
             std::cout << "If you entered the shell by mistake you may run the installer by running ./cavemaninstall" << std::endl;
             exit(0);
         }
