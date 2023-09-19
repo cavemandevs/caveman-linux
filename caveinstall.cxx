@@ -107,7 +107,7 @@ void timezoneSetup() {
     std::cout << "Timezone" << std::endl << std::endl;
     std::cout << "This screen will assist you in setting up a timezone" << std::endl;
     std::cout << "The following is a list of available timezones: " << std::endl << std::endl;
-    system("timdatectl list-timezones");
+    system("timedatectl list-timezones");
     std::cout << "Enter the timezone code and press ENTER: " << std::endl;
     std::string timezone;
     std::cin >> timezone;
