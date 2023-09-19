@@ -17,10 +17,11 @@ void welcome() {
     std::cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << std::endl;
 
     while (1) {
-        std::cout << "Please choose an option: " << std::endl << std::endl;
+        std::cout << "Please choose an option, then press ENTER. " << std::endl << std::endl;
         std::cout << "1: Start Installation" << std::endl;
         std::cout << "2: Enter Shell" << std::endl;
         std::cout << "3: Shutdown Computer" << std::endl;
+        std::cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << std::endl;
         int choice;
         std::cin >> choice;
         if (choice == 1) {
