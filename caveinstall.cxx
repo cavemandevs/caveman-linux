@@ -82,13 +82,13 @@ void diskSetup() {
     std::cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << std::endl;
     std::cout << "Disk Configuration" << std::endl;
     std::cout << "This screen will assist in setting up the target disk" << std::endl;
-    std::cout << "WARNING: SELECTING A DISK WILL ERASE THE ***ENTIRE*** DISK" << std::endl;
+    std::cout << "\033[1;31mWARNING: AS OF NOW, SELECTING THE DISK WILL ***ERASE THE ENTIRE DISK***\033[0m" << std::endl;
     std::cout << "Here is a list of available disks" << std::endl << std::endl;
     system("lsblk");
     std::cout << "\n Make sure to select a disk and not a partition. The disk should not have a number at the end. " << std::endl << std::endl;
     std::cout << "Please enter the disk where Caveman Linux will be installed" << std::endl;
     std::string targetDisk;
-    std::cout << ">>>>>" ;
+    std::cout << ">>> " ;
     std::cin >> targetDisk;
 
 }
@@ -149,6 +149,7 @@ void makeUser() {
 int main() {
     welcome();
     netCheck();
+    diskSetup();
     mirrorSetup();
     timezoneSetup();
     localeSetup();
