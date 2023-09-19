@@ -9,6 +9,8 @@ void welcome() {
     std::cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << std::endl;
     std::cout << "This installer was made by the Caveman Linux contributors & Caveman Software" << std::endl;
     std::cout << "This software is released under the GPLv2 License" << std::endl << std::endl;
+    std::cout << "This is pre-release software, so bugs might be present!" << std::endl;
+    std::cout << "if you see any bugs, please report them to https://github.com/cavemandevs/caveman-linux/issues" << std::endl << std::endl;
     std::cout << "2023 - 2023 Caveman Software & Contributors" << std::endl;
     std::cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << std::endl;
     std::cout << "\033[1;31mWARNING: NETWORKING SETUP IS UNSTABLE. PLEASE SET UP NETWORKING BEFORE USING THE INSTALLER\033[0m" << std::endl;
@@ -51,13 +53,20 @@ void welcome() {
 
 void netCheck() {
     system("clear");
+    std::cout << "Checking Network Connection - Caveman Linux Installation Assistant" << std::endl;
+    std::cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << std::endl;
+    std::cout << "The Installation assistant is detecting active network connections. Please wait..." << std::endl;
+    std::cout << "Connecting to: archlinux.org" <<std::endl <<std::endl;
     int netConnected = system("ping -c3 archlinux.org");
     if (netConnected == 0) {
-        std::cout << "Connected to internet" << std::endl;
+        std::cout << "\033[1;32mNetwork Connection found! Resuming Installation..\033[0m" << std::endl;
+        sleep(5);
         return;
     }
     else {
-        std::cout << "Please connect to the internet" << std::endl;
+        std::cout << "\033[1;31mA working network connection was NOT found!\033[0m" << std::endl << std::endl;
+        std::cout << "As of now, a network assistant is not available in the installer." << std::endl;
+        std::cout << "Please exit the installer, and connect to the internet, and try again." << std::endl;
         exit(0);
     }
     return;
@@ -65,7 +74,7 @@ void netCheck() {
 
 void diskSetup() {
     system("clear");
-    std::cout << "Disk Configuration - Partitioning - Caveman Linux Installation Assistant" << std::endl;
+    std::cout << "\033[1mDisk Configuration - Partitioning - Caveman Linux Installation Assistant\033[0m" << std::endl;
     std::cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << std::endl;
     std::cout << "Disk Configuration" << std::endl;
     std::cout << "This screen will assist in setting up the target disk" << std::endl;
