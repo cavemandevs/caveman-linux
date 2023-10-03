@@ -1,35 +1,13 @@
 # Caveman Linux Code of Conduct
 ### Last Updated: 2023-07-21
 
-## Doing Our Part
-As Open Source maintainers, contributors, and fans, we believe that you should be able to develop without any borders. We value diversity and inclusion, and we encourage EVERYONE to participate. We strive to provide a space where you are welcome, regardless of:
+## Doing your Part
 
--   age
--   body size
--   caste
--   citizenship
--   disability
--   education
--   ethnicity
--   familial status
--   gender expression
--   gender identity
--   genetic information
--   immigration status
--   level of experience
--   nationality
--   personal appearance
--   pregnancy
--   race
--   religion
--   sex characteristics
--   sexual orientation
--   sexual identity
--   socio-economic status
--   tribe
--   veteran status
+As an small open source project, it is important that certain standards are kept within the Caveman community to ensure the healthyness . These standards are as follows:
 
-Open Source software is the way we work. We believe that when everyone works together, we can develop the future. That's why we promise that we will interact and behave in ways that are beneficial to our community. Following these guidelines ensure that everyone is able to participate without fear of discrimination. These guidelines apply everywhere. 
+- Do not discriminate, profile, or harass anyone. Do not attack or harass someone based on their age, ethnicity, and nationality, and sexuality and any other traits.
+- Be respectful.
+
 
 ## Expected Behavior
 In a place where everyone works together, conflicts are expected. That's why we ask that you do the following.
@@ -57,7 +35,7 @@ The Caveman Devs are committed to building a safe and inclusive environment for 
 	- During Caveman Linux Development, we strive to maintain a clean and inclusive environment. While we allow the usual swear word here and there (as long as it's not targeted towards anyone), we kindly ask that sexualized behavior be kept to a minimum. This includes making sexualized comments and/or sharing inappropriate jokes or imagery in any form of media related to or affiliated with Caveman Software.
 
 4. **Violence or threats of violence.**
-	- We ask that you do NOT engage in acts of violence or make threats of violence. This activity is NOT tolerated offline, online, and on official Caveman Development discussion boards. This includes incitement of violence toward any individual, including encouraging a person to self-harm, or making bomb threats.
+	- We ask that you do NOT engage in acts of violence or make threats of violence against other members in the Caveman community. This activity is NOT tolerated offline, online, and on official Caveman Development discussion boards. 
 
 5. **Influencing or encouraging inappropriate behavior.** If you influence or encourage another person to violate the Code of Conduct, you may face the same consequences as if you had violated the Code of Conduct.
 
